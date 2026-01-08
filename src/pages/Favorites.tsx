@@ -1,19 +1,55 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Trash2, Share2, Plane, Hotel, Compass } from 'lucide-react';
+import { Heart, Trash2, Share2, Plane, Hotel, Compass, Scale } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { useFavorites } from '@/contexts/FavoritesContext';
-import { destinations } from '@/data/destinations';
+import { destinations, Destination } from '@/data/destinations';
 import { useToast } from '@/hooks/use-toast';
+import CompareModal from '@/components/favorites/CompareModal';
 
 const Favorites = () => {
   const { favorites, removeFavorite, clearFavorites } = useFavorites();
   const { toast } = useToast();
+  const [compareList, setCompareList] = useState<string[]>([]);
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
 
   const favoriteDestinations = destinations.filter((d) =>
     favorites.includes(d.id)
   );
+
+  const compareDestinations = destinations.filter((d) =>
+    compareList.includes(d.id)
+  );
+
+  const toggleCompare = (id: string) => {
+    setCompareList((prev) => {
+      if (prev.includes(id)) {
+        return prev.filter((i) => i !== id);
+      }
+      if (prev.length >= 3) {
+        toast({
+          title: "Maximum 3 destinations",
+          description: "Remove one to add another.",
+          variant: "destructive",
+        });
+        return prev;
+      }
+      return [...prev, id];
+    });
+  };
+
+  const openCompare = () => {
+    if (compareList.length < 2) {
+      toast({
+        title: "Select at least 2 destinations",
+        description: "Add more destinations to compare.",
+      });
+      return;
+    }
+    setIsCompareOpen(true);
+  };
 
   const handleClearAll = () => {
     if (favorites.length === 0) return;
@@ -81,12 +117,28 @@ const Favorites = () => {
       <section className="section-padding">
         <div className="container-wide">
           {favorites.length > 0 && (
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
               <p className="text-muted-foreground">
                 {favoriteDestinations.length} saved destination
                 {favoriteDestinations.length > 1 ? "s" : ""}
+                {compareList.length > 0 && (
+                  <span className="ml-2 text-accent font-medium">
+                    • {compareList.length} selected for comparison
+                  </span>
+                )}
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-2">
+                {compareList.length > 0 && (
+                  <Button
+                    variant="cta"
+                    size="sm"
+                    className="gap-2"
+                    onClick={openCompare}
+                  >
+                    <Scale className="w-4 h-4" />
+                    Compare ({compareList.length})
+                  </Button>
+                )}
                 <Button variant="outline" size="sm" className="gap-2" onClick={handleShare}>
                   <Share2 className="w-4 h-4" />
                   Share
@@ -128,6 +180,18 @@ const Favorites = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
                     
+                    {/* Compare Checkbox */}
+                    <button
+                      onClick={() => toggleCompare(destination.id)}
+                      className={`absolute top-4 left-4 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                        compareList.includes(destination.id)
+                          ? 'bg-accent text-accent-foreground'
+                          : 'bg-background/80 text-muted-foreground hover:bg-background'
+                      }`}
+                    >
+                      <Scale className="w-5 h-5" />
+                    </button>
+
                     {/* Remove Button */}
                     <button
                       onClick={() => removeFavorite(destination.id)}
@@ -193,6 +257,13 @@ const Favorites = () => {
           )}
         </div>
       </section>
+
+      {/* Compare Modal */}
+      <CompareModal
+        isOpen={isCompareOpen}
+        onClose={() => setIsCompareOpen(false)}
+        destinations={compareDestinations}
+      />
     </Layout>
   );
 };
