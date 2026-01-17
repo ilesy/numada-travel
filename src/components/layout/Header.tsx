@@ -11,6 +11,7 @@ const navLinks = [
   { name: 'Guides', href: '/guides' },
   { name: 'Resources', href: '/resources' },
   { name: 'Quiz', href: '/quiz' },
+  { name: 'About', href: '/about' },
 ];
 
 export const Header = () => {
