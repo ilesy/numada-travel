@@ -16,6 +16,10 @@ export interface Destination {
   bestTimeToVisit: string;
   currency: string;
   language: string;
+  // Affiliate URLs - Replace these with your actual affiliate links
+  flightsUrl: string;
+  hotelsUrl: string;
+  toursUrl: string;
 }
 
 export const destinations: Destination[] = [
@@ -30,6 +34,10 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - April',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
+    // Replace with your affiliate links
+    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=SLU',
+    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-3449086',
+    toursUrl: 'https://www.getyourguide.com/st-lucia-l961/?partner_id=YOUR_AFFILIATE_ID',
   },
   {
     id: 'barbados',
@@ -42,6 +50,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - May',
     currency: 'Barbadian Dollar',
     language: 'English',
+    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=BGI',
+    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-2192566',
+    toursUrl: 'https://www.getyourguide.com/barbados-l546/?partner_id=YOUR_AFFILIATE_ID',
   },
   {
     id: 'svg',
@@ -54,6 +65,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'January - May',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
+    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=SVD',
+    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-3439680',
+    toursUrl: 'https://www.getyourguide.com/st-vincent-grenadines-l3879/?partner_id=YOUR_AFFILIATE_ID',
   },
   {
     id: 'jamaica',
@@ -66,6 +80,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'November - Mid December',
     currency: 'Jamaican Dollar',
     language: 'English',
+    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=MBJ',
+    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-2173066',
+    toursUrl: 'https://www.getyourguide.com/jamaica-l337/?partner_id=YOUR_AFFILIATE_ID',
   },
   {
     id: 'turks-caicos',
@@ -78,6 +95,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'January - April',
     currency: 'US Dollar',
     language: 'English',
+    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=PLS',
+    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-3452820',
+    toursUrl: 'https://www.getyourguide.com/turks-and-caicos-l3881/?partner_id=YOUR_AFFILIATE_ID',
   },
   {
     id: 'antigua',
@@ -90,6 +110,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - April',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
+    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=ANU',
+    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-2192566',
+    toursUrl: 'https://www.getyourguide.com/antigua-l962/?partner_id=YOUR_AFFILIATE_ID',
   },
 ];
 
