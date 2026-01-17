@@ -112,19 +112,19 @@ export const DestinationsGrid = () => {
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-2">
                   <Button variant="outline" size="sm" className="gap-2" asChild>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
+                    <a href={destination.flightsUrl} target="_blank" rel="noopener noreferrer sponsored">
                       <Plane className="w-4 h-4" />
                       Flights
                     </a>
                   </Button>
                   <Button variant="outline" size="sm" className="gap-2" asChild>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
+                    <a href={destination.hotelsUrl} target="_blank" rel="noopener noreferrer sponsored">
                       <Hotel className="w-4 h-4" />
                       Hotels
                     </a>
                   </Button>
                   <Button variant="outline" size="sm" className="gap-2" asChild>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
+                    <a href={destination.toursUrl} target="_blank" rel="noopener noreferrer sponsored">
                       <Compass className="w-4 h-4" />
                       Tours
                     </a>
