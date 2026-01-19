@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import Index from "./pages/Index";
 import Destinations from "./pages/Destinations";
+import DestinationDetail from "./pages/DestinationDetail";
 import Guides from "./pages/Guides";
 import Resources from "./pages/Resources";
 import Quiz from "./pages/Quiz";
@@ -25,7 +26,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/destinations" element={<Destinations />} />
-            <Route path="/guides" element={<Guides />} />
+            <Route path="/destinations/:slug" element={<DestinationDetail />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/favorites" element={<Favorites />} />
