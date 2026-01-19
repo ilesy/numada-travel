@@ -1,32 +1,67 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, CheckCircle } from 'lucide-react';
+import { Mail, CheckCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+import { z } from 'zod';
+
+const emailSchema = z.string().email("Please enter a valid email address").max(255);
 
 export const NewsletterSection = () => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !email.includes('@')) {
+    const validation = emailSchema.safeParse(email.trim());
+    if (!validation.success) {
       toast({
         title: "Invalid email",
-        description: "Please enter a valid email address.",
+        description: validation.error.errors[0].message,
         variant: "destructive",
       });
       return;
     }
 
-    setIsSubmitted(true);
-    toast({
-      title: "Welcome aboard! ✈️",
-      description: "You've successfully subscribed to our newsletter.",
-    });
+    setIsLoading(true);
+    
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscribers')
+        .insert({ email: email.trim().toLowerCase() });
+
+      if (error) {
+        if (error.code === '23505') {
+          // Unique constraint violation - email already exists
+          toast({
+            title: "Already subscribed",
+            description: "This email is already on our list!",
+          });
+          setIsSubmitted(true);
+        } else {
+          throw error;
+        }
+      } else {
+        setIsSubmitted(true);
+        toast({
+          title: "Welcome aboard! ✈️",
+          description: "You've successfully subscribed to our newsletter.",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -69,8 +104,8 @@ export const NewsletterSection = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 h-12"
               />
-              <Button type="submit" variant="cta" size="lg">
-                Subscribe Free
+              <Button type="submit" variant="cta" size="lg" disabled={isLoading}>
+                {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Subscribe Free'}
               </Button>
             </form>
           )}
