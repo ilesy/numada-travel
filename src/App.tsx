@@ -12,6 +12,8 @@ import Resources from "./pages/Resources";
 import Quiz from "./pages/Quiz";
 import Favorites from "./pages/Favorites";
 import About from "./pages/About";
+import TravelStack from "./pages/TravelStack";
+import Concierge from "./pages/Concierge";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +33,8 @@ const App = () => (
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/about" element={<About />} />
+            <Route path="/travel-stack" element={<TravelStack />} />
+            <Route path="/concierge" element={<Concierge />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

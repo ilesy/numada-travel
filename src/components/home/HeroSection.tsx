@@ -1,10 +1,47 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download, Loader2, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+import { z } from 'zod';
 import heroImage from '@/assets/hero-caribbean.jpg';
 
+const emailSchema = z.string().email("Please enter a valid email address").max(255);
+
 export const HeroSection = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleGuideSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const validation = emailSchema.safeParse(email.trim());
+    if (!validation.success) {
+      toast({ title: "Invalid email", description: validation.error.errors[0].message, variant: "destructive" });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const { error } = await supabase.from('newsletter_subscribers').insert({ email: email.trim().toLowerCase() });
+      if (error && error.code === '23505') {
+        toast({ title: "Welcome back!", description: "You're already on our list. Check your inbox for the guide!" });
+      } else if (error) {
+        throw error;
+      } else {
+        toast({ title: "Your guide is on the way! ✈️", description: "Check your inbox for the Caribbean Insider's Guide." });
+      }
+      setIsSubmitted(true);
+    } catch {
+      toast({ title: "Something went wrong", description: "Please try again later.", variant: "destructive" });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background Image */}
@@ -27,19 +64,57 @@ export const HeroSection = () => {
             className="text-center lg:text-left"
           >
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6">
-              Discover the Caribbean,{' '}
+              Experience the Caribbean,{' '}
               <span className="italic text-accent">Done Right.</span>
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-              Curated destinations, expert travel guides, and handpicked resources to help you plan unforgettable island experiences — with confidence and clarity.
+              We've spent years uncovering the Caribbean's best-kept secrets so you don't have to. Join our community of savvy travelers who skip the tourist traps and experience the islands like insiders.
             </p>
+
+            {/* Email Capture Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/20 max-w-lg mx-auto lg:mx-0 mb-6"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <Download className="w-5 h-5 text-accent" />
+                <span className="text-primary-foreground font-semibold text-sm uppercase tracking-wide">Free Download</span>
+              </div>
+              <h3 className="font-serif text-xl text-primary-foreground font-bold mb-2">
+                The 5-Page Caribbean Insider's Guide
+              </h3>
+              <p className="text-primary-foreground/80 text-sm mb-4">
+                Our best flight hacks, shoulder-season secrets, and the beaches the resorts don't tell you about.
+              </p>
+
+              {isSubmitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex items-center gap-3 text-accent"
+                >
+                  <CheckCircle className="w-6 h-6" />
+                  <span className="font-medium text-primary-foreground">Check your inbox — your guide is on the way!</span>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleGuideSubmit} className="flex flex-col sm:flex-row gap-3">
+                  <Input
+                    type="email"
+                    placeholder="Enter your best email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 h-12 bg-primary-foreground/90 text-foreground placeholder:text-muted-foreground border-0"
+                  />
+                  <Button type="submit" variant="cta" size="lg" disabled={isLoading} className="whitespace-nowrap">
+                    {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Send Me the Guide'}
+                  </Button>
+                </form>
+              )}
+            </motion.div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="lg" asChild>
-                <Link to="/quiz">
-                  Get Your Free Guide
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
               <Button variant="outline-light" size="lg" asChild>
                 <Link to="/destinations">Explore Destinations</Link>
               </Button>
