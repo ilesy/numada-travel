@@ -5,12 +5,12 @@ import { Button } from '@/components/ui/button';
 
 const resources = [
   {
-    name: 'Skyscanner',
-    description: 'We never book a Caribbean flight without checking here first. Use the "Whole Month" view to find shoulder-season price drops that save hundreds.',
+    name: 'Aviasales',
+    description: 'Our go-to for finding cheap Caribbean flights. It searches regional carriers that big engines miss — perfect for inter-island hopping.',
     logo: '✈️',
     cta: 'Compare Caribbean Flights',
     href: '#',
-    tip: 'Use the "Everywhere" search to find the cheapest island to fly into.',
+    tip: 'Use the calendar view to spot shoulder-season price drops between islands.',
   },
   {
     name: 'Booking.com',
@@ -21,20 +21,20 @@ const resources = [
     tip: 'Filter for 9.0+ review scores so photos match reality.',
   },
   {
-    name: 'World Nomads',
-    description: "If you're hiking the Pitons or diving in Turks & Caicos, you need insurance that actually covers adventure. Digital claims process means no paperwork headaches.",
-    logo: '🛡️',
-    cta: 'Get a Quote',
+    name: 'GetRentacar.com',
+    description: 'Renting a car is the best way to explore Caribbean islands on your own terms. Local owners offer better prices than airport desks.',
+    logo: '🚗',
+    cta: 'Find Island Rentals',
     href: '#',
-    tip: 'Get covered before you leave — not at the airport.',
+    tip: 'Book a 4x4 for St. Lucia — trust us, you\'ll need it for those roads.',
   },
   {
-    name: 'GetYourGuide',
-    description: 'The best Caribbean experiences are often hidden. Verified reviews help you avoid tourist traps and find authentic local excursions.',
+    name: 'Klook',
+    description: 'Book verified tours, snorkeling trips, and hidden-gem excursions across the Caribbean. Skip the tourist traps with real traveler reviews.',
     logo: '⛵',
     cta: 'Explore Local Tours',
     href: '#',
-    tip: 'Book popular boat tours 2+ weeks in advance — they sell out fast!',
+    tip: 'Book popular boat tours 2+ weeks in advance — the best ones sell out fast!',
   },
 ];
 
