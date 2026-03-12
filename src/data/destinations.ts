@@ -35,15 +35,19 @@ export interface Destination {
   bestTimeToVisit: string;
   currency: string;
   language: string;
-  // Affiliate URLs - Replace YOUR_AFFILIATE_ID with your actual partner IDs
   flightsUrl: string;
   hotelsUrl: string;
   toursUrl: string;
-  // Extended content
   itinerary: ItineraryDay[];
   faqs: FAQ[];
   seasonalTips: SeasonalTip[];
 }
+
+// Affiliate links
+const AVIASALES_BASE = 'https://aviasales.tp.st/';
+const BOOKING_URL = 'https://booking.tpo.lu/egBLp5jl';
+const EXPEDIA_URL = 'https://expedia.tpo.lu/q3EwQ1Kc';
+const KLOOK_BASE = 'https://klook.tp.st/';
 
 export const destinations: Destination[] = [
   {
@@ -57,9 +61,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - April',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
-    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=SLU',
-    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-3449086',
-    toursUrl: 'https://www.getyourguide.com/st-lucia-l961/?partner_id=YOUR_AFFILIATE_ID',
+    flightsUrl: EXPEDIA_URL,
+    hotelsUrl: BOOKING_URL,
+    toursUrl: KLOOK_BASE,
     itinerary: [
       { day: 1, title: 'Arrival & Beach Relaxation', activities: ['Arrive at Hewanorra International Airport', 'Transfer to your resort', 'Sunset dinner at a beachfront restaurant', 'Evening stroll along Sugar Beach'] },
       { day: 2, title: 'Pitons Adventure', activities: ['Hike Gros Piton with a local guide', 'Lunch in Soufrière', 'Visit the Sulphur Springs volcanic mud baths', 'Relax at a natural waterfall'] },
@@ -90,9 +94,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - May',
     currency: 'Barbadian Dollar',
     language: 'English',
-    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=BGI',
-    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-2192566',
-    toursUrl: 'https://www.getyourguide.com/barbados-l546/?partner_id=YOUR_AFFILIATE_ID',
+    flightsUrl: EXPEDIA_URL,
+    hotelsUrl: BOOKING_URL,
+    toursUrl: KLOOK_BASE,
     itinerary: [
       { day: 1, title: 'Arrival & South Coast', activities: ['Arrive at Grantley Adams International Airport', 'Check into your hotel', 'Explore St. Lawrence Gap', 'Dinner at Oistins Fish Fry'] },
       { day: 2, title: 'Historic Bridgetown', activities: ['Walking tour of UNESCO Bridgetown', 'Visit Parliament Buildings', 'Lunch at Waterfront Café', 'Mount Gay Rum Distillery tour and tasting'] },
@@ -123,9 +127,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'January - May',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
-    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=SVD',
-    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-3439680',
-    toursUrl: 'https://www.getyourguide.com/st-vincent-grenadines-l3879/?partner_id=YOUR_AFFILIATE_ID',
+    flightsUrl: EXPEDIA_URL,
+    hotelsUrl: BOOKING_URL,
+    toursUrl: KLOOK_BASE,
     itinerary: [
       { day: 1, title: 'Arrival in St. Vincent', activities: ['Arrive at Argyle International Airport', 'Explore Kingstown capital', 'Visit Fort Charlotte for panoramic views', 'Dinner at a local restaurant'] },
       { day: 2, title: 'Volcano Adventure', activities: ['Early morning hike to La Soufrière volcano', 'Lunch in Georgetown', 'Relax at Dark View Falls', 'Evening in Kingstown'] },
@@ -156,9 +160,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'November - Mid December',
     currency: 'Jamaican Dollar',
     language: 'English',
-    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=MBJ',
-    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-2173066',
-    toursUrl: 'https://www.getyourguide.com/jamaica-l337/?partner_id=YOUR_AFFILIATE_ID',
+    flightsUrl: EXPEDIA_URL,
+    hotelsUrl: BOOKING_URL,
+    toursUrl: KLOOK_BASE,
     itinerary: [
       { day: 1, title: 'Arrival in Montego Bay', activities: ['Arrive at Sangster International Airport', 'Transfer to your resort', 'Explore Hip Strip', 'Sunset dinner at Margaritaville'] },
       { day: 2, title: "Dunn's River & Ocho Rios", activities: ["Climb Dunn's River Falls", 'Explore Ocho Rios', 'Visit Mystic Mountain for bobsled ride', 'Evening at Fisherman\'s Beach'] },
@@ -189,9 +193,9 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'January - April',
     currency: 'US Dollar',
     language: 'English',
-    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=PLS',
-    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-3452820',
-    toursUrl: 'https://www.getyourguide.com/turks-and-caicos-l3881/?partner_id=YOUR_AFFILIATE_ID',
+    flightsUrl: EXPEDIA_URL,
+    hotelsUrl: BOOKING_URL,
+    toursUrl: KLOOK_BASE,
     itinerary: [
       { day: 1, title: 'Arrival & Grace Bay', activities: ['Arrive at Providenciales International Airport', 'Check into your resort', 'Relax at Grace Bay Beach', 'Sunset dinner on the beach'] },
       { day: 2, title: 'Water Adventures', activities: ['Morning snorkeling at Smith\'s Reef', 'Stand-up paddleboarding', 'Visit to Provo Golf Club or spa', 'Conch fritters at local restaurant'] },
@@ -222,26 +226,26 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - April',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
-    flightsUrl: 'https://www.skyscanner.com/transport/flights/YOUR_AFFILIATE_ID/?destination=ANU',
-    hotelsUrl: 'https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&dest_id=-2192566',
-    toursUrl: 'https://www.getyourguide.com/antigua-l962/?partner_id=YOUR_AFFILIATE_ID',
+    flightsUrl: EXPEDIA_URL,
+    hotelsUrl: BOOKING_URL,
+    toursUrl: KLOOK_BASE,
     itinerary: [
       { day: 1, title: 'Arrival & Beach Time', activities: ['Arrive at V.C. Bird International Airport', 'Transfer to your resort', 'Explore nearby beach', 'Welcome rum punch at sunset'] },
-      { day: 2, title: "Nelson's Dockyard", activities: ["Explore historic Nelson's Dockyard", 'Visit the Dockyard Museum', 'Lunch at a harbourside restaurant', 'Hike to Shirley Heights for Sunday party (if applicable)'] },
-      { day: 3, title: 'Beach Hopping', activities: ['Visit Dickenson Bay for water sports', 'Explore Half Moon Bay', 'Snorkeling at Cades Reef', 'Dinner in St. John\'s'] },
-      { day: 4, title: 'Natural Wonders', activities: ["See Devil's Bridge natural formation", 'Visit Betty\'s Hope sugar plantation', 'Afternoon at Ffryes Beach', 'Sunset sailing cruise'] },
-      { day: 5, title: 'Departure', activities: ['Morning beach swim', 'Shop in St. John\'s Heritage Quay', 'Departure'] },
+      { day: 2, title: "Nelson's Dockyard", activities: ["Tour Nelson's Dockyard National Park", 'Explore English Harbour', 'Lunch at a historic restaurant', 'Sunday sunset party at Shirley Heights'] },
+      { day: 3, title: 'Beach Hopping', activities: ['Visit Half Moon Bay', 'Explore Darkwood Beach', 'Afternoon at Jolly Beach', 'Dinner in St. John\'s'] },
+      { day: 4, title: 'Barbuda Day Trip', activities: ['Ferry or flight to Barbuda', 'Visit Frigate Bird Sanctuary', 'Relax on Pink Sand Beach', 'Return to Antigua'] },
+      { day: 5, title: 'Departure', activities: ['Final beach morning', 'Shopping in Heritage Quay', 'Departure'] },
     ],
     faqs: [
-      { question: 'Are there really 365 beaches?', answer: 'Yes! Antigua officially has 365 beaches - one for each day of the year. Each offers a unique experience from calm coves to surf spots.' },
-      { question: 'What is Shirley Heights Lookout?', answer: 'A historic military lookout with panoramic views. Famous for Sunday afternoon BBQ parties with steel band music and stunning sunsets.' },
-      { question: 'Should I visit Barbuda?', answer: 'Absolutely! The sister island offers pink sand beaches and the famous Frigate Bird Sanctuary. Day trips are available by boat or small plane.' },
-      { question: 'What is Antigua Sailing Week?', answer: 'One of the world\'s top regattas held annually in late April/early May. A week of racing and parties attracting sailors worldwide.' },
+      { question: 'Is it true Antigua has 365 beaches?', answer: 'Yes! The island claims a beach for every day of the year, each with its own character and charm.' },
+      { question: 'How do I get to Barbuda?', answer: 'You can take a ferry (about 90 minutes) or a short flight (15 minutes) from Antigua to Barbuda.' },
+      { question: 'What is Shirley Heights?', answer: 'A historic military lookout that now hosts a famous Sunday afternoon party with BBQ, rum punch, and steel band music overlooking English Harbour.' },
+      { question: 'When is Antigua Sailing Week?', answer: 'Usually held in late April/early May, it\'s one of the world\'s premier sailing regattas and a great time to visit.' },
     ],
     seasonalTips: [
-      { season: 'Dry Season', months: 'December - April', description: 'Best weather with trade winds perfect for sailing. Peak tourist season.', crowdLevel: 'High', priceLevel: 'Peak' },
-      { season: 'Shoulder Season', months: 'May - June, November', description: 'Good weather with occasional showers. Fewer tourists and better rates.', crowdLevel: 'Medium', priceLevel: 'Moderate' },
-      { season: 'Rainy Season', months: 'July - October', description: 'Hurricane season with tropical showers. Lowest prices and quiet beaches.', crowdLevel: 'Low', priceLevel: 'Budget' },
+      { season: 'Dry Season', months: 'December - April', description: 'Perfect weather for sailing and beach activities. Peak season with festivals.', crowdLevel: 'High', priceLevel: 'Peak' },
+      { season: 'Shoulder Season', months: 'May - June', description: 'Sailing Week in May. Good weather with building humidity.', crowdLevel: 'Medium', priceLevel: 'Moderate' },
+      { season: 'Hurricane Season', months: 'July - November', description: 'Lower prices and fewer tourists. Some risk of tropical weather.', crowdLevel: 'Low', priceLevel: 'Budget' },
     ],
   },
 ];

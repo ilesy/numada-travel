@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Shield, Plane, Hotel, ShieldCheck, Map } from 'lucide-react';
+import { ExternalLink, Shield, ShieldCheck } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 
@@ -11,6 +11,15 @@ const resources = [
     category: 'Flights',
     cta: 'Search Flights',
     href: '#',
+    featured: true,
+  },
+  {
+    name: 'Expedia',
+    description: 'Bundle flights and hotels together for 10-20% savings on Caribbean packages. Mobile-exclusive flash sales on island resorts and all-inclusive deals.',
+    logo: '🌴',
+    category: 'Packages',
+    cta: 'Find Deals',
+    href: 'https://expedia.tpo.lu/q3EwQ1Kc',
     featured: true,
   },
   {

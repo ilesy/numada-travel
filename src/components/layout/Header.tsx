@@ -8,8 +8,8 @@ import logo from '@/assets/numada-logo.png';
 
 const navLinks = [
   { name: 'Destinations', href: '/destinations' },
-  { name: 'Guides', href: '/guides' },
-  { name: 'Resources', href: '/resources' },
+  { name: 'Travel Stack', href: '/travel-stack' },
+  { name: 'Concierge', href: '/concierge' },
   { name: 'Quiz', href: '/quiz' },
   { name: 'About', href: '/about' },
 ];
