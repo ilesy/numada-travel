@@ -15,6 +15,15 @@ const tools = [
     href: '#',
   },
   {
+    emoji: '🌴',
+    name: 'Bundle Flights + Hotels: Expedia',
+    description: 'When we want the convenience of bundling flights and hotels together, Expedia is our go-to. Their package deals for the Caribbean consistently save us 10-20% compared to booking separately.',
+    whyWeLoveIt: 'The "Bundle & Save" feature is perfect for Caribbean trips. Pair your inter-island flight with a beachfront hotel and watch the total price drop significantly.',
+    proTip: 'Use the Expedia app for mobile-exclusive deals — they often have flash sales on Caribbean resorts that don\'t appear on desktop.',
+    cta: 'Find Caribbean Deals on Expedia',
+    href: 'https://expedia.tpo.lu/q3EwQ1Kc',
+  },
+  {
     emoji: '🏨',
     name: 'Secure Your Stay: Booking.com',
     description: 'From luxury cliffside villas in St. Lucia to cozy beachfront guesthouses in Barbados, Booking.com has the largest inventory in the islands.',

@@ -13,20 +13,20 @@ const resources = [
     tip: 'Use the calendar view to spot shoulder-season price drops between islands.',
   },
   {
+    name: 'Expedia',
+    description: 'Bundle flights + hotels together and save 10-20% on Caribbean packages. Mobile-exclusive flash sales on island resorts make this a must-check.',
+    logo: '🌴',
+    cta: 'Find Caribbean Deals',
+    href: 'https://expedia.tpo.lu/q3EwQ1Kc',
+    tip: 'Use the app for mobile-exclusive deals on Caribbean resort bundles.',
+  },
+  {
     name: 'Booking.com',
     description: 'From cliffside villas in St. Lucia to beachfront guesthouses in Barbados — the "Free Cancellation" filter is a lifesaver when Caribbean plans shift.',
     logo: '🏨',
     cta: 'Browse Top-Rated Stays',
     href: 'https://booking.tpo.lu/egBLp5jl',
     tip: 'Filter for 9.0+ review scores so photos match reality.',
-  },
-  {
-    name: 'GetRentacar.com',
-    description: 'Renting a car is the best way to explore Caribbean islands on your own terms. Local owners offer better prices than airport desks.',
-    logo: '🚗',
-    cta: 'Find Island Rentals',
-    href: '#',
-    tip: 'Book a 4x4 for St. Lucia — trust us, you\'ll need it for those roads.',
   },
   {
     name: 'Klook',
