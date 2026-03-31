@@ -27,13 +27,13 @@ export const Footer = () => {
               Curated Caribbean travel experiences, expert guides, and handpicked resources to help you explore the islands with confidence.
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://facebook.com/numadatravel" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-accent transition-colors">
+              <a href="https://facebook.com/numadatravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/70 hover:text-accent transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com/numadatravel" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-accent transition-colors">
+              <a href="https://instagram.com/numadatravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/70 hover:text-accent transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com/numadatravel" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-accent transition-colors">
+              <a href="https://twitter.com/numadatravel" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-primary-foreground/70 hover:text-accent transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
             </div>
