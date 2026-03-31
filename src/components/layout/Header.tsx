@@ -49,6 +49,7 @@ export const Header = () => {
           <div className="flex items-center gap-4">
             <Link
               to="/favorites"
+              aria-label={`My Favorites${favorites.length > 0 ? ` (${favorites.length})` : ''}`}
               className="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-muted transition-colors"
             >
               <Heart className="w-5 h-5 text-foreground" />
@@ -67,6 +68,7 @@ export const Header = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-muted transition-colors"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5" />
