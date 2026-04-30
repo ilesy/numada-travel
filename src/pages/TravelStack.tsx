@@ -57,7 +57,7 @@ const tools = [
     whyWeLoveIt: 'One eSIM covers multiple islands, which is perfect for island-hopping. Set it up before you even board your flight.',
     proTip: 'Download offline maps of your destination before you go, then use your eSIM data for real-time translation and restaurant lookups.',
     cta: 'Get Your Caribbean eSIM',
-    href: '#',
+    href: 'https://yesim.tpo.lu/upyXs45K',
   },
   {
     emoji: '🛡️',

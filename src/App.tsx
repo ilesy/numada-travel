@@ -14,6 +14,7 @@ import Favorites from "./pages/Favorites";
 import About from "./pages/About";
 import TravelStack from "./pages/TravelStack";
 import Concierge from "./pages/Concierge";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/travel-stack" element={<TravelStack />} />
             <Route path="/concierge" element={<Concierge />} />
+            <Route path="/blog" element={<Blog />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

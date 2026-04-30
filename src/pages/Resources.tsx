@@ -55,7 +55,7 @@ const resources = [
     logo: '📱',
     category: 'Connectivity',
     cta: 'Get eSIM',
-    href: '#',
+    href: 'https://yesim.tpo.lu/upyXs45K',
     featured: true,
   },
   {

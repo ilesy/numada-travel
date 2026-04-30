@@ -11,6 +11,7 @@ const navLinks = [
   { name: 'Travel Stack', href: '/travel-stack' },
   { name: 'Concierge', href: '/concierge' },
   { name: 'Quiz', href: '/quiz' },
+  { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
 ];
 
