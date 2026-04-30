@@ -14,6 +14,7 @@ import Favorites from "./pages/Favorites";
 import About from "./pages/About";
 import TravelStack from "./pages/TravelStack";
 import Concierge from "./pages/Concierge";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
