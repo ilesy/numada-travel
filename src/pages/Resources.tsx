@@ -46,7 +46,7 @@ const resources = [
     logo: '⛵',
     category: 'Tours',
     cta: 'Explore Tours',
-    href: '#',
+    href: 'https://klook.tpo.lu/pH5aNy8o',
     featured: true,
   },
   {

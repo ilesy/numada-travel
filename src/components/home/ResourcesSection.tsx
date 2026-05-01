@@ -33,7 +33,7 @@ const resources = [
     description: 'Book verified tours, snorkeling trips, and hidden-gem excursions across the Caribbean. Skip the tourist traps with real traveler reviews.',
     logo: '⛵',
     cta: 'Explore Local Tours',
-    href: '#',
+    href: 'https://klook.tpo.lu/pH5aNy8o',
     tip: 'Book popular boat tours 2+ weeks in advance — the best ones sell out fast!',
   },
 ];
