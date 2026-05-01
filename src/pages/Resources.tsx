@@ -37,7 +37,7 @@ const resources = [
     logo: '🚗',
     category: 'Car Rental',
     cta: 'Find Rentals',
-    href: '#',
+    href: 'https://getrentacar.tpo.lu/pPxYps8Y',
     featured: true,
   },
   {
