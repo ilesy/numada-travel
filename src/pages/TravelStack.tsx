@@ -12,7 +12,7 @@ const tools = [
     whyWeLoveIt: 'The calendar price view makes it dead simple to spot "Shoulder Season" deals. We\'ve saved $300+ per person just by shifting dates by a few days.',
     proTip: 'If you\'re flexible on your destination, compare prices across multiple islands at once to see which one is cheapest to fly into right now.',
     cta: 'Compare Caribbean Flights on Aviasales',
-    href: '#',
+    href: 'https://aviasales.tpo.lu/ijnjwuHV',
   },
   {
     emoji: '🌴',

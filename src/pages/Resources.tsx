@@ -10,7 +10,7 @@ const resources = [
     logo: '✈️',
     category: 'Flights',
     cta: 'Search Flights',
-    href: '#',
+    href: 'https://aviasales.tpo.lu/ijnjwuHV',
     featured: true,
   },
   {
