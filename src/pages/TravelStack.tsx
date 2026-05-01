@@ -48,7 +48,7 @@ const tools = [
     whyWeLoveIt: 'Verified reviews from real travelers mean you can skip the "tourist trap" excursions and find the genuine hidden gems that locals actually recommend.',
     proTip: 'Book your popular boat tours and "Friday Night Jump Up" at least two weeks in advance — the best ones sell out fast!',
     cta: 'Explore Local Tours & Excursions',
-    href: '#',
+    href: 'https://klook.tpo.lu/pH5aNy8o',
   },
   {
     emoji: '📱',
