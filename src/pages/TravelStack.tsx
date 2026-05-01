@@ -66,7 +66,7 @@ const tools = [
     whyWeLoveIt: 'Competitive pricing with genuine adventure coverage. Their digital claims process means no paperwork headaches if something goes sideways on the trail.',
     proTip: 'Don\'t wait until you\'re at the airport. Get covered before you leave your front door — most policies won\'t cover pre-existing incidents.',
     cta: 'Get an Insurance Quote',
-    href: '#',
+    href: 'https://ektatraveling.tpo.lu/Uciz3vDI',
   },
 ];
 

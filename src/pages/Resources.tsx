@@ -64,7 +64,7 @@ const resources = [
     logo: '🛡️',
     category: 'Insurance',
     cta: 'Get a Quote',
-    href: '#',
+    href: 'https://ektatraveling.tpo.lu/Uciz3vDI',
     featured: true,
   },
 ];
