@@ -39,7 +39,7 @@ const tools = [
     whyWeLoveIt: 'No hidden fees, no airport counter queues. You deal directly with local owners who know the roads and often throw in tips about hidden beaches.',
     proTip: 'In St. Lucia and Jamaica, always book a 4x4. The mountain roads are no joke, and a small sedan won\'t cut it.',
     cta: 'Find Island Car Rentals',
-    href: '#',
+    href: 'https://getrentacar.tpo.lu/pPxYps8Y',
   },
   {
     emoji: '⛵',
