@@ -9,7 +9,7 @@ const resources = [
     description: 'Our go-to for finding cheap Caribbean flights. It searches regional carriers that big engines miss — perfect for inter-island hopping.',
     logo: '✈️',
     cta: 'Compare Caribbean Flights',
-    href: '#',
+    href: 'https://aviasales.tpo.lu/ijnjwuHV',
     tip: 'Use the calendar view to spot shoulder-season price drops between islands.',
   },
   {

@@ -44,7 +44,7 @@ export interface Destination {
 }
 
 // Affiliate links
-const AVIASALES_BASE = 'https://aviasales.tp.st/';
+const AVIASALES_BASE = 'https://aviasales.tpo.lu/ijnjwuHV';
 const EXPEDIA_URL = 'https://expedia.com/affiliates/jbi_enterprises/numadatravel';
 const BOOKING_URL = EXPEDIA_URL;
 const KLOOK_BASE = EXPEDIA_URL;
