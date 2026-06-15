@@ -20,7 +20,8 @@ const whatYouGet = [
 ];
 
 const Concierge = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', island: '', dates: '', vibe: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', island: '', dates: '', partySize: '', budget: '', vibe: '' });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
