@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, MapPin, Utensils, Star, CheckCircle, Clock, Shield, Loader2 } from 'lucide-react';
+import { ArrowRight, Calendar, MapPin, Utensils, Star, CheckCircle, Clock, Shield, Loader2, Lock } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+
 
 const whatYouGet = [
   { icon: Calendar, text: 'A custom 7-day daily itinerary built around your exact travel dates and vibe' },
