@@ -169,40 +169,103 @@ const Quiz = () => {
                 </h1>
 
                 {recommendation && (
-                  <div className="bg-card rounded-2xl overflow-hidden shadow-card max-w-lg mx-auto mb-8">
-                    <img
-                      src={recommendation.image}
-                      alt={recommendation.name}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="p-6">
-                      <h2 className="font-serif text-2xl font-bold text-foreground mb-2">
-                        {recommendation.name}
-                      </h2>
-                      <p className="text-muted-foreground mb-4">
-                        {recommendation.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 justify-center mb-6">
-                        {recommendation.highlights.map((highlight) => (
-                          <span
-                            key={highlight}
-                            className="text-xs bg-secondary text-secondary-foreground px-3 py-1 rounded-full"
-                          >
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="flex gap-4 justify-center">
-                        <Button variant="cta" asChild>
-                          <Link to="/destinations">Explore Destination</Link>
-                        </Button>
-                        <Button variant="outline" onClick={restart}>
-                          Retake Quiz
+                  <>
+                    <div className="bg-card rounded-2xl overflow-hidden shadow-card max-w-lg mx-auto mb-8">
+                      <img
+                        src={recommendation.image}
+                        alt={recommendation.name}
+                        className="w-full h-64 object-cover"
+                      />
+                      <div className="p-6">
+                        <h2 className="font-serif text-2xl font-bold text-foreground mb-2">
+                          {recommendation.name}
+                        </h2>
+                        <p className="text-muted-foreground mb-4">
+                          {recommendation.shortDescription}
+                        </p>
+                        <div className="flex flex-wrap gap-2 justify-center mb-6">
+                          {recommendation.highlights.map((highlight) => (
+                            <span
+                              key={highlight}
+                              className="text-xs bg-secondary text-secondary-foreground px-3 py-1 rounded-full"
+                            >
+                              {highlight}
+                            </span>
+                          ))}
+                        </div>
+                        <Button variant="cta" className="w-full" asChild>
+                          <Link to={`/destinations/${recommendation.slug}`}>
+                            See the Full {recommendation.name} Guide
+                          </Link>
                         </Button>
                       </div>
                     </div>
-                  </div>
+
+                    {/* Next Steps */}
+                    <div className="max-w-lg mx-auto mb-8">
+                      <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">
+                        Start Booking Your Trip
+                      </p>
+                      <div className="grid grid-cols-3 gap-3">
+                        <a
+                          href={recommendation.flightsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored"
+                          className="flex flex-col items-center gap-2 p-4 bg-card rounded-xl border border-border hover:border-accent transition-colors"
+                        >
+                          <Plane className="w-5 h-5 text-accent" />
+                          <span className="text-xs font-medium text-foreground">Flights</span>
+                        </a>
+                        <a
+                          href={recommendation.hotelsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored"
+                          className="flex flex-col items-center gap-2 p-4 bg-card rounded-xl border border-border hover:border-accent transition-colors"
+                        >
+                          <Hotel className="w-5 h-5 text-accent" />
+                          <span className="text-xs font-medium text-foreground">Hotels</span>
+                        </a>
+                        <a
+                          href={recommendation.toursUrl}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored"
+                          className="flex flex-col items-center gap-2 p-4 bg-card rounded-xl border border-border hover:border-accent transition-colors"
+                        >
+                          <Compass className="w-5 h-5 text-accent" />
+                          <span className="text-xs font-medium text-foreground">Tours</span>
+                        </a>
+                      </div>
+                      <p className="text-[10px] text-muted-foreground text-center mt-2">
+                        We may earn a small commission, at no extra cost to you.
+                      </p>
+                    </div>
+
+                    {/* Concierge Upsell */}
+                    <div className="max-w-lg mx-auto bg-primary text-primary-foreground rounded-2xl p-6 md:p-8 mb-8 text-left">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                          <MessageCircle className="w-6 h-6 text-accent" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-serif text-xl font-bold mb-2">
+                            Want us to plan the whole trip?
+                          </h3>
+                          <p className="text-primary-foreground/80 text-sm mb-4">
+                            Skip the research spiral. For $99, we'll build you a custom day-by-day {recommendation.name} itinerary delivered in 48 hours.
+                          </p>
+                          <Button variant="cta" size="sm" asChild>
+                            <Link to="/concierge">Get My Custom Itinerary →</Link>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <Button variant="ghost" onClick={restart}>
+                      Retake Quiz
+                    </Button>
+                  </>
                 )}
+
               </motion.div>
             )}
           </AnimatePresence>
