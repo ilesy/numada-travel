@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, MapPin, Utensils, Star, CheckCircle, Clock, Shield, Loader2 } from 'lucide-react';
+import { ArrowRight, Calendar, MapPin, Utensils, Star, CheckCircle, Clock, Shield, Loader2, Lock } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+
 
 const whatYouGet = [
   { icon: Calendar, text: 'A custom 7-day daily itinerary built around your exact travel dates and vibe' },
@@ -17,7 +20,8 @@ const whatYouGet = [
 ];
 
 const Concierge = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', island: '', dates: '', vibe: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', island: '', dates: '', partySize: '', budget: '', vibe: '' });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -172,9 +176,16 @@ const Concierge = () => {
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-2 text-center">
                 Get Your Custom Itinerary
               </h2>
-              <p className="text-muted-foreground text-center mb-8">
-                Fill out the form below and we'll start building your blueprint.
+              <p className="text-muted-foreground text-center mb-6">
+                Takes 2 minutes. Delivered in 48 hours.
               </p>
+
+              {/* Trust signals */}
+              <div className="flex items-center justify-center gap-4 mb-8 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1.5"><Lock className="w-3 h-3" /> Secure</span>
+                <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> 48h delivery</span>
+                <span className="flex items-center gap-1.5"><Shield className="w-3 h-3" /> No charge today</span>
+              </div>
 
               {isSubmitted ? (
                 <motion.div
@@ -190,54 +201,89 @@ const Concierge = () => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1 block">Your Name</label>
-                    <Input
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Sarah & James"
-                      className="h-12"
-                    />
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1 block">Your Name *</label>
+                      <Input
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Sarah & James"
+                        className="h-12"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1 block">Email *</label>
+                      <Input
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="your@email.com"
+                        className="h-12"
+                        required
+                      />
+                    </div>
                   </div>
+
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-1 block">Email Address</label>
-                    <Input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="your@email.com"
-                      className="h-12"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1 block">Which island(s) interest you?</label>
+                    <label className="text-sm font-medium text-foreground mb-1 block">Which island(s)?</label>
                     <Input
                       value={formData.island}
                       onChange={(e) => setFormData({ ...formData, island: e.target.value })}
-                      placeholder="e.g. St. Lucia, open to suggestions"
-                      className="h-12"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1 block">Approximate travel dates</label>
-                    <Input
-                      value={formData.dates}
-                      onChange={(e) => setFormData({ ...formData, dates: e.target.value })}
-                      placeholder="e.g. March 15–22, 2026"
-                      className="h-12"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1 block">Describe your ideal trip vibe</label>
-                    <Input
-                      value={formData.vibe}
-                      onChange={(e) => setFormData({ ...formData, vibe: e.target.value })}
-                      placeholder="e.g. Romantic, adventurous, foodie, relaxation"
+                      placeholder="e.g. St. Lucia, or open to suggestions"
                       className="h-12"
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full mt-4" disabled={isLoading}>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1 block">Travel dates</label>
+                      <Input
+                        value={formData.dates}
+                        onChange={(e) => setFormData({ ...formData, dates: e.target.value })}
+                        placeholder="March 15–22, 2026"
+                        className="h-12"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1 block">Party size</label>
+                      <Select value={formData.partySize} onValueChange={(v) => setFormData({ ...formData, partySize: v })}>
+                        <SelectTrigger className="h-12"><SelectValue placeholder="Select…" /></SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="solo">Solo</SelectItem>
+                          <SelectItem value="couple">Couple</SelectItem>
+                          <SelectItem value="family">Family (3–5)</SelectItem>
+                          <SelectItem value="group">Group (6+)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1 block">Approximate budget (excl. flights)</label>
+                    <Select value={formData.budget} onValueChange={(v) => setFormData({ ...formData, budget: v })}>
+                      <SelectTrigger className="h-12"><SelectValue placeholder="Select a range…" /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="under-3k">Under $3,000</SelectItem>
+                        <SelectItem value="3-6k">$3,000 – $6,000</SelectItem>
+                        <SelectItem value="6-10k">$6,000 – $10,000</SelectItem>
+                        <SelectItem value="10k+">$10,000+</SelectItem>
+                        <SelectItem value="flexible">Flexible / no limit</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-1 block">Describe your dream trip</label>
+                    <Textarea
+                      value={formData.vibe}
+                      onChange={(e) => setFormData({ ...formData, vibe: e.target.value })}
+                      placeholder="Romantic + adventurous. Love snorkeling, hate crowded resorts. We're foodies — would love a rum distillery tour…"
+                      className="min-h-[110px]"
+                    />
+                  </div>
+
+                  <Button type="submit" variant="hero" size="lg" className="w-full mt-2" disabled={isLoading}>
                     {isLoading ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
                     ) : (
@@ -253,6 +299,7 @@ const Concierge = () => {
                   </p>
                 </form>
               )}
+
             </motion.div>
           </div>
         </div>
