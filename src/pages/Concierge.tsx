@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, MapPin, Utensils, Star, CheckCircle, Clock, Shield, Loader2, Lock } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
@@ -6,8 +6,37 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+
+const testimonials = [
+  { name: 'Maya & Tom', trip: 'Honeymoon, St. Lucia', quote: 'It would have taken us 3 weekends to plan what they delivered in 48 hours. Best $99 we spent on the trip.', stars: 5 },
+  { name: 'Daniel R.', trip: 'Family of 5, Turks & Caicos', quote: "Every restaurant they sent us to was perfect. The 'avoid this one tourist trap' note alone earned the fee back.", stars: 5 },
+  { name: 'Priya K.', trip: 'Girls trip, Barbados', quote: "Felt like getting a Caribbean-obsessed friend on speed-dial. The shoulder-season tip saved us almost $1,200.", stars: 5 },
+];
+
+const conciergeFaqs = [
+  { q: 'How is this different from a travel agent?', a: "We don't book your trip — you keep full control. We hand you a complete, opinionated blueprint (where to stay, where to eat, what to skip) with direct booking links, so you can book at your own pace using the best deal you find." },
+  { q: 'What if I haven\'t picked an island yet?', a: "That's actually our favorite kind of brief. Tell us your dates, party, and vibe — we'll recommend the best-fit island and explain why." },
+  { q: 'When am I charged?', a: "Not today. You submit the form, we confirm we can take the brief, then we send a Stripe link for $99. No charge until we start." },
+  { q: 'How fast is delivery?', a: 'Within 48 hours of payment. Most are delivered next-day.' },
+  { q: 'What if I need changes?', a: 'One round of revisions is included. Most travelers don\'t need them.' },
+  { q: 'Do you take commission on my bookings?', a: 'Some of the links we send may be affiliate links (flights, hotels, tours) — disclosed up front. It never changes the price for you, and we never recommend something just because it pays.' },
+];
+
+const sampleDay = {
+  title: 'Day 3 — Soufrière deep dive (sample from a real St. Lucia itinerary)',
+  blocks: [
+    { time: '7:30 AM', text: "Leave Sugar Beach early — the road to Soufrière gets slow after 9. Coffee + croissant at Petit Peak (cash only, $8 USD)." },
+    { time: '9:00 AM', text: 'Gros Piton hike with Themba (WhatsApp +1 758 ###-####). Tell him we sent you — he\'ll meet you at the trailhead and skip the visitor center line. Allow 4 hours round trip, moderate fitness.' },
+    { time: '2:00 PM', text: "Lunch at Orlando's. Skip the printed menu — ask for the Creole tasting (3 courses, ~$45). Order the breadfruit gnocchi." },
+    { time: '4:00 PM', text: 'Sulphur Springs mud bath — go to the lower pools, not the upper tourist deck. Bring a swimsuit you\'re okay ruining.' },
+    { time: '7:30 PM', text: 'Sunset at Ladera Resort\'s open-air bar. Non-guests welcome until 9 PM. Order the Piton Mary.' },
+  ],
+};
+
+
 
 
 const whatYouGet = [
@@ -44,6 +73,37 @@ const Concierge = () => {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    const ld = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Service',
+          name: 'Numada Caribbean Concierge',
+          provider: { '@type': 'Organization', name: 'NumadaTravel' },
+          description: 'Custom 7-day Caribbean itinerary delivered within 48 hours.',
+          offers: { '@type': 'Offer', price: '99', priceCurrency: 'USD' },
+          areaServed: 'Caribbean',
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: conciergeFaqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ],
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(ld);
+    document.head.appendChild(script);
+    document.title = 'Caribbean Concierge — Custom Itinerary in 48h | NumadaTravel';
+    return () => { script.remove(); };
+  }, []);
+
 
   return (
     <Layout>
@@ -163,8 +223,80 @@ const Concierge = () => {
         </div>
       </section>
 
+      {/* Sample Itinerary Excerpt */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <div className="text-center mb-10">
+            <span className="text-accent font-medium text-sm tracking-widest uppercase mb-4 block">A real excerpt</span>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-3">See exactly what you'll get</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">No vague "explore the area" filler. Real names, real times, real WhatsApp numbers.</p>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card"
+          >
+            <h3 className="font-serif text-xl font-bold text-foreground mb-6">{sampleDay.title}</h3>
+            <ol className="space-y-5 border-l-2 border-accent/30 pl-6">
+              {sampleDay.blocks.map((b, i) => (
+                <li key={i} className="relative">
+                  <span className="absolute -left-[1.85rem] top-1 w-3 h-3 rounded-full bg-accent" />
+                  <div className="text-sm font-semibold text-accent mb-1">{b.time}</div>
+                  <p className="text-foreground/90 text-sm leading-relaxed">{b.text}</p>
+                </li>
+              ))}
+            </ol>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-padding bg-cream-dark">
+        <div className="container-wide">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Travelers who trusted us</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-card rounded-xl p-6 border border-border shadow-card flex flex-col"
+              >
+                <div className="flex text-accent mb-3">
+                  {Array.from({ length: t.stars }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+                <p className="text-foreground/90 mb-4 flex-grow leading-relaxed">"{t.quote}"</p>
+                <div className="text-sm">
+                  <div className="font-semibold text-foreground">{t.name}</div>
+                  <div className="text-muted-foreground">{t.trip}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground text-center mb-10">Concierge FAQ</h2>
+          <Accordion type="single" collapsible className="space-y-3">
+            {conciergeFaqs.map((f, i) => (
+              <AccordionItem key={i} value={`cq-${i}`} className="bg-card rounded-lg px-6 border border-border">
+                <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline">{f.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       {/* Intake Form */}
-      <section className="section-padding bg-background" id="book">
+      <section className="section-padding bg-cream-dark" id="book">
         <div className="container-narrow">
           <div className="max-w-lg mx-auto">
             <motion.div

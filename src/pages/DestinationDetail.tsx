@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Layout } from '@/components/layout/Layout';
@@ -59,6 +60,41 @@ const DestinationDetail = () => {
       default: return 'text-green-600';
     }
   };
+
+  // Inject JSON-LD (TouristDestination + FAQPage) for SEO
+  useEffect(() => {
+    if (!destination) return;
+    const ld = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'TouristDestination',
+          name: destination.name,
+          description: destination.description,
+          image: destination.image,
+          url: `https://numadatravel.com/destinations/${destination.slug}`,
+          touristType: 'Caribbean traveler',
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: destination.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: { '@type': 'Answer', text: f.answer },
+          })),
+        },
+      ],
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(ld);
+    script.dataset.jsonld = 'destination';
+    document.head.appendChild(script);
+    document.title = `${destination.name} Travel Guide — NumadaTravel`;
+    return () => {
+      script.remove();
+    };
+  }, [destination]);
 
   return (
     <Layout>

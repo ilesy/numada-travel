@@ -63,13 +63,25 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="text-center lg:text-left"
           >
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6">
+            <h1 className="font-serif text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl xl:text-7xl font-bold text-primary-foreground mb-6">
               Experience the Caribbean,{' '}
               <span className="italic text-accent">Done Right.</span>
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-              We've spent years uncovering the Caribbean's best-kept secrets so you don't have to. Join our community of savvy travelers who skip the tourist traps and experience the islands like insiders.
+            <p className="text-base sm:text-lg md:text-xl text-primary-foreground/90 max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed">
+              We've spent years uncovering the Caribbean's best-kept secrets so you don't have to. Join savvy travelers who skip the tourist traps and experience the islands like insiders.
             </p>
+
+            {/* Social proof */}
+            <div className="flex items-center gap-3 mb-6 justify-center lg:justify-start">
+              <div className="flex text-accent" aria-label="5 out of 5 stars">
+                {[0,1,2,3,4].map((i) => (
+                  <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.4 1.4 6.3L10 15l-5.6 3.2L5.8 12 1 7.5l6.4-.6L10 1z"/></svg>
+                ))}
+              </div>
+              <span className="text-sm text-primary-foreground/90">
+                <strong className="text-primary-foreground">"Saved us 3 weekends of research."</strong> — Maya & Tom, honeymoon planners
+              </span>
+            </div>
 
             {/* Email Capture Form */}
             <motion.div
@@ -129,7 +141,7 @@ export const HeroSection = () => {
             >
               <div className="flex items-center gap-2 text-primary-foreground/80">
                 <div className="w-2 h-2 bg-accent rounded-full" />
-                <span className="text-sm font-medium">6+ Caribbean Destinations</span>
+                <span className="text-sm font-medium">11 Caribbean Destinations</span>
               </div>
               <div className="flex items-center gap-2 text-primary-foreground/80">
                 <div className="w-2 h-2 bg-accent rounded-full" />

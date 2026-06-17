@@ -95,7 +95,7 @@ export const DestinationsGrid = () => {
                 </button>
 
                 {/* Affiliate Badge */}
-                <div className="absolute top-4 left-4">
+                <div className="absolute bottom-3 left-3">
                   <span className="affiliate-badge">Partner Links</span>
                 </div>
               </div>

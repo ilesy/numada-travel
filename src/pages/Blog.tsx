@@ -124,7 +124,7 @@ const Blog = () => {
                 variants={item}
                 className="group bg-card rounded-xl overflow-hidden border border-border shadow-card hover:shadow-elevated transition-shadow"
               >
-                <div className="p-6">
+                <Link to={`/blog/${post.slug}`} className="block p-6">
                   <div className="text-5xl mb-4">{post.image}</div>
                   <span className="text-xs font-medium text-accent uppercase tracking-wider">
                     {post.category}
@@ -145,11 +145,11 @@ const Blog = () => {
                       {post.readTime}
                     </span>
                   </div>
-                  <Button variant="ghost" size="sm" className="gap-2 group-hover:text-accent px-0">
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-accent">
                     Read Article
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </div>
+                  </span>
+                </Link>
               </motion.article>
             ))}
           </motion.div>

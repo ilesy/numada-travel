@@ -1,12 +1,22 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Shield, ArrowRight, Download } from 'lucide-react';
+import { ExternalLink, Shield, ArrowRight, Download, Luggage, Lightbulb, Plane, Hotel, Building2, Car, Sailboat, Smartphone, ShieldCheck, Link2, LucideIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 
-const tools = [
+type Tool = {
+  icon: LucideIcon;
+  name: string;
+  description: string;
+  whyWeLoveIt: string;
+  proTip: string;
+  cta: string;
+  href: string;
+};
+
+const tools: Tool[] = [
   {
-    emoji: '✈️',
+    icon: Plane,
     name: 'Find the Best Flights: Aviasales',
     description: 'We never book a Caribbean flight without checking Aviasales first. It searches hundreds of airlines — including the small regional carriers between islands that Google Flights completely misses.',
     whyWeLoveIt: 'The calendar price view makes it dead simple to spot "Shoulder Season" deals. We\'ve saved $300+ per person just by shifting dates by a few days.',
@@ -15,7 +25,7 @@ const tools = [
     href: 'https://aviasales.tpo.lu/ijnjwuHV',
   },
   {
-    emoji: '🌴',
+    icon: Hotel,
     name: 'Bundle Flights + Hotels: Expedia',
     description: 'When we want the convenience of comparing flights, hotels, and packages in one place, Expedia is our go-to. Their bundle search often surfaces better total prices for Caribbean trips than booking each piece separately.',
     whyWeLoveIt: 'Searching flights and hotels side by side makes it easy to spot when bundling actually saves money — and when it doesn\'t. Savings vary by route, dates, and property.',
@@ -24,7 +34,7 @@ const tools = [
     href: 'https://expedia.com/affiliates/jbi_enterprises/numadatravel',
   },
   {
-    emoji: '🏨',
+    icon: Building2,
     name: 'Browse Stays: Expedia Hotels',
     description: 'From cliffside villas in St. Lucia to beachfront guesthouses in Barbados, Expedia lists a wide range of Caribbean stays. Pricing, refundability, and any member or rewards perks depend entirely on the individual property and rate you select.',
     whyWeLoveIt: 'The filters make it easy to narrow by guest rating, neighborhood, and cancellation policy — so you can choose the trade-off between flexibility and price that works for your trip.',
@@ -33,7 +43,7 @@ const tools = [
     href: 'https://expedia.com/affiliate/6i9Bqilc',
   },
   {
-    emoji: '🚗',
+    icon: Car,
     name: 'Rent a Car from Locals: GetRentacar.com',
     description: 'Exploring the Caribbean properly means having your own wheels. GetRentacar connects you with local car owners who offer better prices and more flexibility than big airport rental desks.',
     whyWeLoveIt: 'No hidden fees, no airport counter queues. You deal directly with local owners who know the roads and often throw in tips about hidden beaches.',
@@ -42,7 +52,7 @@ const tools = [
     href: 'https://getrentacar.tpo.lu/pPxYps8Y',
   },
   {
-    emoji: '⛵',
+    icon: Sailboat,
     name: 'Book Authentic Experiences: Klook',
     description: 'The best parts of the Caribbean are often hidden from the resort crowd. Klook connects you with verified local experiences — from private catamaran charters to guided rainforest treks and street food tours.',
     whyWeLoveIt: 'Verified reviews from real travelers mean you can skip the "tourist trap" excursions and find the genuine hidden gems that locals actually recommend.',
@@ -51,7 +61,7 @@ const tools = [
     href: 'https://klook.tpo.lu/pH5aNy8o',
   },
   {
-    emoji: '📱',
+    icon: Smartphone,
     name: 'Stay Connected: Yesim eSIM',
     description: 'Nothing kills the Caribbean vibe faster than a $200 roaming bill. Yesim provides affordable eSIM data plans that work across multiple Caribbean islands — no SIM swapping needed.',
     whyWeLoveIt: 'One eSIM covers multiple islands, which is perfect for island-hopping. Set it up before you even board your flight.',
@@ -60,7 +70,7 @@ const tools = [
     href: 'https://yesim.tpo.lu/upyXs45K',
   },
   {
-    emoji: '🛡️',
+    icon: ShieldCheck,
     name: 'Travel Insurance: EKTA',
     description: 'If you\'re hiking the Pitons, scuba diving in Turks & Caicos, or driving a 4x4 through the Jamaican hills, you need insurance that actually covers adventure activities — not just hotel cancellations.',
     whyWeLoveIt: 'Competitive pricing with genuine adventure coverage. Their digital claims process means no paperwork headaches if something goes sideways on the trail.',
@@ -87,9 +97,10 @@ const TravelStack = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 inline-flex items-center gap-3 justify-center flex-wrap"
           >
-            The Numada Travel Stack 🧳
+            <Luggage className="w-10 h-10 md:w-12 md:h-12 text-accent" />
+            The Numada Travel Stack
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -115,7 +126,9 @@ const TravelStack = () => {
               className="bg-card rounded-2xl p-8 md:p-10 border border-border shadow-card"
             >
               <div className="flex items-start gap-4 mb-4">
-                <span className="text-5xl">{tool.emoji}</span>
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <tool.icon className="w-7 h-7 text-accent" />
+                </div>
                 <div>
                   <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
                     {tool.name}
@@ -134,16 +147,18 @@ const TravelStack = () => {
                 </p>
               </div>
 
-              <div className="bg-accent/5 rounded-lg p-4 mb-6 border border-accent/10">
+              <div className="bg-accent/5 rounded-lg p-4 mb-6 border border-accent/10 flex items-start gap-2">
+                <Lightbulb className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                 <p className="text-sm">
-                  <strong className="text-accent">💡 Pro Tip:</strong>{' '}
+                  <strong className="text-accent">Pro Tip:</strong>{' '}
                   <span className="text-muted-foreground">{tool.proTip}</span>
                 </p>
               </div>
 
               <Button variant="cta" size="lg" className="gap-2" asChild>
                 <a href={tool.href} target="_blank" rel="noopener noreferrer sponsored">
-                  🔗 {tool.cta}
+                  <Link2 className="w-4 h-4" />
+                  {tool.cta}
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </Button>
