@@ -74,6 +74,37 @@ const Concierge = () => {
     }
   };
 
+  useEffect(() => {
+    const ld = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Service',
+          name: 'Numada Caribbean Concierge',
+          provider: { '@type': 'Organization', name: 'NumadaTravel' },
+          description: 'Custom 7-day Caribbean itinerary delivered within 48 hours.',
+          offers: { '@type': 'Offer', price: '99', priceCurrency: 'USD' },
+          areaServed: 'Caribbean',
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: conciergeFaqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ],
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(ld);
+    document.head.appendChild(script);
+    document.title = 'Caribbean Concierge — Custom Itinerary in 48h | NumadaTravel';
+    return () => { script.remove(); };
+  }, []);
+
+
   return (
     <Layout>
       {/* Hero */}
