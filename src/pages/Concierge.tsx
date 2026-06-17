@@ -223,8 +223,80 @@ const Concierge = () => {
         </div>
       </section>
 
+      {/* Sample Itinerary Excerpt */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <div className="text-center mb-10">
+            <span className="text-accent font-medium text-sm tracking-widest uppercase mb-4 block">A real excerpt</span>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-3">See exactly what you'll get</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">No vague "explore the area" filler. Real names, real times, real WhatsApp numbers.</p>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card"
+          >
+            <h3 className="font-serif text-xl font-bold text-foreground mb-6">{sampleDay.title}</h3>
+            <ol className="space-y-5 border-l-2 border-accent/30 pl-6">
+              {sampleDay.blocks.map((b, i) => (
+                <li key={i} className="relative">
+                  <span className="absolute -left-[1.85rem] top-1 w-3 h-3 rounded-full bg-accent" />
+                  <div className="text-sm font-semibold text-accent mb-1">{b.time}</div>
+                  <p className="text-foreground/90 text-sm leading-relaxed">{b.text}</p>
+                </li>
+              ))}
+            </ol>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-padding bg-cream-dark">
+        <div className="container-wide">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Travelers who trusted us</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-card rounded-xl p-6 border border-border shadow-card flex flex-col"
+              >
+                <div className="flex text-accent mb-3">
+                  {Array.from({ length: t.stars }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+                <p className="text-foreground/90 mb-4 flex-grow leading-relaxed">"{t.quote}"</p>
+                <div className="text-sm">
+                  <div className="font-semibold text-foreground">{t.name}</div>
+                  <div className="text-muted-foreground">{t.trip}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground text-center mb-10">Concierge FAQ</h2>
+          <Accordion type="single" collapsible className="space-y-3">
+            {conciergeFaqs.map((f, i) => (
+              <AccordionItem key={i} value={`cq-${i}`} className="bg-card rounded-lg px-6 border border-border">
+                <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline">{f.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       {/* Intake Form */}
-      <section className="section-padding bg-background" id="book">
+      <section className="section-padding bg-cream-dark" id="book">
         <div className="container-narrow">
           <div className="max-w-lg mx-auto">
             <motion.div
