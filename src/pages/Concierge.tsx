@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, MapPin, Utensils, Star, CheckCircle, Clock, Shield, Loader2, Lock } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
@@ -6,8 +6,37 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+
+const testimonials = [
+  { name: 'Maya & Tom', trip: 'Honeymoon, St. Lucia', quote: 'It would have taken us 3 weekends to plan what they delivered in 48 hours. Best $99 we spent on the trip.', stars: 5 },
+  { name: 'Daniel R.', trip: 'Family of 5, Turks & Caicos', quote: "Every restaurant they sent us to was perfect. The 'avoid this one tourist trap' note alone earned the fee back.", stars: 5 },
+  { name: 'Priya K.', trip: 'Girls trip, Barbados', quote: "Felt like getting a Caribbean-obsessed friend on speed-dial. The shoulder-season tip saved us almost $1,200.", stars: 5 },
+];
+
+const conciergeFaqs = [
+  { q: 'How is this different from a travel agent?', a: "We don't book your trip — you keep full control. We hand you a complete, opinionated blueprint (where to stay, where to eat, what to skip) with direct booking links, so you can book at your own pace using the best deal you find." },
+  { q: 'What if I haven\'t picked an island yet?', a: "That's actually our favorite kind of brief. Tell us your dates, party, and vibe — we'll recommend the best-fit island and explain why." },
+  { q: 'When am I charged?', a: "Not today. You submit the form, we confirm we can take the brief, then we send a Stripe link for $99. No charge until we start." },
+  { q: 'How fast is delivery?', a: 'Within 48 hours of payment. Most are delivered next-day.' },
+  { q: 'What if I need changes?', a: 'One round of revisions is included. Most travelers don\'t need them.' },
+  { q: 'Do you take commission on my bookings?', a: 'Some of the links we send may be affiliate links (flights, hotels, tours) — disclosed up front. It never changes the price for you, and we never recommend something just because it pays.' },
+];
+
+const sampleDay = {
+  title: 'Day 3 — Soufrière deep dive (sample from a real St. Lucia itinerary)',
+  blocks: [
+    { time: '7:30 AM', text: "Leave Sugar Beach early — the road to Soufrière gets slow after 9. Coffee + croissant at Petit Peak (cash only, $8 USD)." },
+    { time: '9:00 AM', text: 'Gros Piton hike with Themba (WhatsApp +1 758 ###-####). Tell him we sent you — he\'ll meet you at the trailhead and skip the visitor center line. Allow 4 hours round trip, moderate fitness.' },
+    { time: '2:00 PM', text: "Lunch at Orlando's. Skip the printed menu — ask for the Creole tasting (3 courses, ~$45). Order the breadfruit gnocchi." },
+    { time: '4:00 PM', text: 'Sulphur Springs mud bath — go to the lower pools, not the upper tourist deck. Bring a swimsuit you\'re okay ruining.' },
+    { time: '7:30 PM', text: 'Sunset at Ladera Resort\'s open-air bar. Non-guests welcome until 9 PM. Order the Piton Mary.' },
+  ],
+};
+
+
 
 
 const whatYouGet = [
