@@ -141,7 +141,7 @@ export const HeroSection = () => {
             >
               <div className="flex items-center gap-2 text-primary-foreground/80">
                 <div className="w-2 h-2 bg-accent rounded-full" />
-                <span className="text-sm font-medium">6+ Caribbean Destinations</span>
+                <span className="text-sm font-medium">11 Caribbean Destinations</span>
               </div>
               <div className="flex items-center gap-2 text-primary-foreground/80">
                 <div className="w-2 h-2 bg-accent rounded-full" />
