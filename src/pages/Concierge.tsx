@@ -432,10 +432,20 @@ const Concierge = () => {
                   <p className="text-xs text-muted-foreground text-center mt-3">
                     You'll receive payment instructions after we confirm your request. No charge until we start.
                   </p>
+                  <div className="flex justify-center mt-3">
+                    <GuaranteeBadge />
+                  </div>
                 </form>
               )}
 
+              <div className="mt-6">
+                <GuaranteeBadge variant="card" />
+              </div>
             </motion.div>
+
+            <div className="mt-10">
+              <SampleItineraryCTA variant="card" source="concierge-sample" />
+            </div>
           </div>
         </div>
       </section>
