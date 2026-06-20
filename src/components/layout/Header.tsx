@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Destinations', href: '/destinations' },
   { name: 'Travel Stack', href: '/travel-stack' },
   { name: 'Concierge', href: '/concierge' },
+  { name: 'Insiders', href: '/community' },
   { name: 'Quiz', href: '/quiz' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
