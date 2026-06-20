@@ -14,23 +14,50 @@ export type Database = {
   }
   public: {
     Tables: {
+      insider_notes: {
+        Row: {
+          content_md: string
+          created_at: string
+          destination_slug: string
+          id: string
+          title: string
+        }
+        Insert: {
+          content_md: string
+          created_at?: string
+          destination_slug: string
+          id?: string
+          title: string
+        }
+        Update: {
+          content_md?: string
+          created_at?: string
+          destination_slug?: string
+          id?: string
+          title?: string
+        }
+        Relationships: []
+      }
       newsletter_subscribers: {
         Row: {
           email: string
           id: string
           is_active: boolean
+          source: string
           subscribed_at: string
         }
         Insert: {
           email: string
           id?: string
           is_active?: boolean
+          source?: string
           subscribed_at?: string
         }
         Update: {
           email?: string
           id?: string
           is_active?: boolean
+          source?: string
           subscribed_at?: string
         }
         Relationships: []

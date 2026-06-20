@@ -58,10 +58,12 @@ export const Footer = () => {
             <h4 className="font-serif text-lg font-semibold mb-6">Resources</h4>
             <ul className="space-y-3">
               {[
-                { name: 'Travel Guides', href: '/guides' },
-                { name: 'Booking Tools', href: '/resources' },
+                { name: 'Concierge ($99)', href: '/concierge' },
+                { name: 'Insider Notes', href: '/insider' },
+                { name: 'Join the Insiders', href: '/community' },
+                { name: 'Travel Stack', href: '/travel-stack' },
                 { name: 'Island Quiz', href: '/quiz' },
-                { name: 'My Favorites', href: '/favorites' },
+                { name: 'About / Founder', href: '/about' },
               ].map((item) => (
                 <li key={item.name}>
                   <Link to={item.href} className="text-sm text-primary-foreground/70 hover:text-accent transition-colors">

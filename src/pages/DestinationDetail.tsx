@@ -139,7 +139,7 @@ const DestinationDetail = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap gap-3"
+            className="flex flex-wrap gap-3 items-center"
           >
             <Button
               variant={isFavorite(destination.id) ? 'cta' : 'outline-light'}
@@ -149,9 +149,26 @@ const DestinationDetail = () => {
               <Heart className={`w-4 h-4 ${isFavorite(destination.id) ? 'fill-current' : ''}`} />
               {isFavorite(destination.id) ? 'Saved' : 'Save to Favorites'}
             </Button>
+            <span className="bg-white/95 text-foreground rounded-lg px-4 py-2 text-sm shadow-card">
+              <span className="text-muted-foreground">Trips from </span>
+              <span className="font-bold">${destination.priceFrom.toLocaleString()}</span>
+              <span className="text-muted-foreground"> / 7 nights</span>
+            </span>
           </motion.div>
         </div>
       </section>
+
+      {/* Members CTA */}
+      <div className="bg-accent/10 border-y border-accent/20 py-4">
+        <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+          <span className="text-sm text-foreground">
+            🔒 <strong>Members see the off-menu list for {destination.name}</strong> — local guides, scams to skip, and the dish locals actually order.
+          </span>
+          <Button size="sm" variant="cta" asChild>
+            <Link to="/insider">Unlock free</Link>
+          </Button>
+        </div>
+      </div>
 
       {/* Affiliate Disclosure */}
       <div className="bg-muted/50 py-3 border-b border-border">

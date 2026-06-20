@@ -40,6 +40,7 @@ export interface Destination {
   bestTimeToVisit: string;
   currency: string;
   language: string;
+  priceFrom: number;
   flightsUrl: string;
   hotelsUrl: string;
   toursUrl: string;
@@ -66,6 +67,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - April',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
+    priceFrom: 2900,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -99,6 +101,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - May',
     currency: 'Barbadian Dollar',
     language: 'English',
+    priceFrom: 2400,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -132,6 +135,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'January - May',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
+    priceFrom: 2200,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -165,6 +169,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'November - Mid December',
     currency: 'Jamaican Dollar',
     language: 'English',
+    priceFrom: 1900,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -198,6 +203,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'January - April',
     currency: 'US Dollar',
     language: 'English',
+    priceFrom: 3600,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -231,6 +237,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - April',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
+    priceFrom: 2800,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -264,6 +271,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'April - August (cheaper, still dry)',
     currency: 'Aruban Florin',
     language: 'Dutch, Papiamento, English',
+    priceFrom: 2200,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -297,6 +305,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - April',
     currency: 'Bahamian Dollar (USD accepted 1:1)',
     language: 'English',
+    priceFrom: 2600,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -330,6 +339,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'December - April',
     currency: 'Dominican Peso (USD widely accepted)',
     language: 'Spanish',
+    priceFrom: 1500,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -363,6 +373,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'November - April',
     currency: 'Cayman Islands Dollar (USD accepted)',
     language: 'English',
+    priceFrom: 3200,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
@@ -396,6 +407,7 @@ export const destinations: Destination[] = [
     bestTimeToVisit: 'January - April',
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
+    priceFrom: 2100,
     flightsUrl: EXPEDIA_URL,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,

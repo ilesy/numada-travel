@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { GuaranteeBadge } from '@/components/GuaranteeBadge';
+import { SampleItineraryCTA } from '@/components/SampleItineraryCTA';
 
 const testimonials = [
   { name: 'Maya & Tom', trip: 'Honeymoon, St. Lucia', quote: 'It would have taken us 3 weekends to plan what they delivered in 48 hours. Best $99 we spent on the trip.', stars: 5 },
@@ -17,6 +19,7 @@ const testimonials = [
 ];
 
 const conciergeFaqs = [
+  { q: 'Is there a guarantee?', a: "Yes — 7-day, no-questions-asked money-back guarantee. If the brief isn't useful, just reply and we refund. No forms, no friction." },
   { q: 'How is this different from a travel agent?', a: "We don't book your trip — you keep full control. We hand you a complete, opinionated blueprint (where to stay, where to eat, what to skip) with direct booking links, so you can book at your own pace using the best deal you find." },
   { q: 'What if I haven\'t picked an island yet?', a: "That's actually our favorite kind of brief. Tell us your dates, party, and vibe — we'll recommend the best-fit island and explain why." },
   { q: 'When am I charged?', a: "Not today. You submit the form, we confirm we can take the brief, then we send a Stripe link for $99. No charge until we start." },
@@ -429,10 +432,20 @@ const Concierge = () => {
                   <p className="text-xs text-muted-foreground text-center mt-3">
                     You'll receive payment instructions after we confirm your request. No charge until we start.
                   </p>
+                  <div className="flex justify-center mt-3">
+                    <GuaranteeBadge />
+                  </div>
                 </form>
               )}
 
+              <div className="mt-6">
+                <GuaranteeBadge variant="card" />
+              </div>
             </motion.div>
+
+            <div className="mt-10">
+              <SampleItineraryCTA variant="card" source="concierge-sample" />
+            </div>
           </div>
         </div>
       </section>
