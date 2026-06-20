@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { GuaranteeBadge } from '@/components/GuaranteeBadge';
+import { SampleItineraryCTA } from '@/components/SampleItineraryCTA';
 
 const testimonials = [
   { name: 'Maya & Tom', trip: 'Honeymoon, St. Lucia', quote: 'It would have taken us 3 weekends to plan what they delivered in 48 hours. Best $99 we spent on the trip.', stars: 5 },
