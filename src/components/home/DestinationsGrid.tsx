@@ -98,13 +98,22 @@ export const DestinationsGrid = () => {
                 <div className="absolute bottom-3 left-3">
                   <span className="affiliate-badge">Partner Links</span>
                 </div>
+
+                {/* Price Badge */}
+                <div className="absolute bottom-3 right-3 bg-background/95 backdrop-blur rounded-lg px-3 py-1.5 text-xs shadow-card">
+                  <span className="text-muted-foreground">Trips from </span>
+                  <span className="font-bold text-foreground">${destination.priceFrom.toLocaleString()}</span>
+                  <span className="text-muted-foreground"> / 7 nights</span>
+                </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-                  {destination.name}
-                </h3>
+                <Link to={`/destinations/${destination.slug}`} className="block">
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-2 hover:text-accent transition-colors">
+                    {destination.name}
+                  </h3>
+                </Link>
                 <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                   {destination.shortDescription}
                 </p>
