@@ -19,6 +19,7 @@ const testimonials = [
 ];
 
 const conciergeFaqs = [
+  { q: 'Is there a guarantee?', a: "Yes — 7-day, no-questions-asked money-back guarantee. If the brief isn't useful, just reply and we refund. No forms, no friction." },
   { q: 'How is this different from a travel agent?', a: "We don't book your trip — you keep full control. We hand you a complete, opinionated blueprint (where to stay, where to eat, what to skip) with direct booking links, so you can book at your own pace using the best deal you find." },
   { q: 'What if I haven\'t picked an island yet?', a: "That's actually our favorite kind of brief. Tell us your dates, party, and vibe — we'll recommend the best-fit island and explain why." },
   { q: 'When am I charged?', a: "Not today. You submit the form, we confirm we can take the brief, then we send a Stripe link for $99. No charge until we start." },
