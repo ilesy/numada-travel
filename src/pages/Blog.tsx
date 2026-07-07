@@ -30,6 +30,8 @@ const posts: Post[] = [
     status: 'published',
     featured: true,
   },
+  { id: 10, slug: 'best-caribbean-island-for-honeymoon', title: 'The Best Caribbean Island for Your Honeymoon (2026 Guide)', excerpt: 'St. Lucia, Turks & Caicos, or the Grenadines? Which one actually fits your honeymoon style.', category: 'Honeymoon', readTime: '10 min read', date: 'Jul 02, 2026', image: '💍', status: 'published' },
+  { id: 11, slug: 'hidden-caribbean-beaches', title: 'Eight Hidden Caribbean Beaches Locals Actually Love', excerpt: "The best Caribbean beaches don't show up on Instagram. Eight locals-only spots.", category: 'Beaches', readTime: '9 min read', date: 'Jun 28, 2026', image: '🏖️', status: 'published' },
   { id: 1, slug: 'best-time-to-visit-caribbean', title: 'Best Time to Visit the Caribbean: A Month-by-Month Guide', excerpt: "Navigate hurricane season, peak prices, and festivals with our seasonal breakdown.", category: 'Planning', readTime: '8 min read', date: 'Apr 15, 2026', image: '📅', status: 'published' },
   { id: 2, slug: 'island-hopping-101', title: 'Island Hopping 101: Planning a Multi-Island Caribbean Trip', excerpt: "Combine multiple destinations into one adventure — ferries, regional flights, timing.", category: 'Planning', readTime: '15 min read', date: 'Apr 8, 2026', image: '✈️', status: 'published' },
   { id: 3, slug: 'caribbean-on-a-budget', title: 'Caribbean on a Budget: How to Travel Smart Without Sacrificing Style', excerpt: "Insider tips for luxury Caribbean vibes without breaking the bank.", category: 'Budget Travel', readTime: '10 min read', date: 'Mar 28, 2026', image: '💰', status: 'published' },
