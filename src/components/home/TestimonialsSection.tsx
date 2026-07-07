@@ -1,79 +1,50 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { testimonials } from '@/data/testimonials';
-import { Button } from '@/components/ui/button';
 
 export const TestimonialsSection = () => {
-  const [current, setCurrent] = useState(0);
-  const items = testimonials;
-
+  const [i, setI] = useState(0);
   useEffect(() => {
-    const timer = setInterval(() => setCurrent((p) => (p + 1) % items.length), 6000);
-    return () => clearInterval(timer);
-  }, [items.length]);
-
-  const next = () => setCurrent((p) => (p + 1) % items.length);
-  const prev = () => setCurrent((p) => (p - 1 + items.length) % items.length);
-  const t = items[current];
+    const t = setInterval(() => setI((p) => (p + 1) % testimonials.length), 7000);
+    return () => clearInterval(t);
+  }, []);
+  const t = testimonials[i];
 
   return (
-    <section className="section-padding bg-primary overflow-hidden">
+    <section className="section-padding bg-cream-dark">
       <div className="container-narrow">
-        <div className="text-center mb-12">
-          <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-accent font-medium text-sm tracking-widest uppercase mb-4 block">
-            Traveler Stories
-          </motion.span>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground">
-            What our travelers say
-          </motion.h2>
+        <div className="mb-14">
+          <div className="text-[10px] tracking-[0.3em] uppercase text-accent font-semibold mb-3">From The Members</div>
+          <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
+            What travelers <span className="italic text-secondary">are saying.</span>
+          </h2>
         </div>
 
-        <div className="relative max-w-3xl mx-auto">
-          <Quote className="w-12 h-12 text-accent/30 mx-auto mb-6" />
-          <div className="relative min-h-[220px]">
-            <AnimatePresence mode="wait">
-              <motion.div key={t.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="text-center">
-                <div className="flex justify-center gap-1 text-accent mb-4">
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <p className="text-xl md:text-2xl text-primary-foreground/90 font-serif italic leading-relaxed mb-6">
-                  "{t.quote}"
-                </p>
+        <div className="grid md:grid-cols-[3fr_1fr] gap-10 items-start">
+          <AnimatePresence mode="wait">
+            <motion.blockquote key={t.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.4 }} className="relative">
+              <div className="flex text-accent mb-4">
+                {Array.from({ length: t.stars }).map((_, s) => <Star key={s} className="w-4 h-4 fill-current" />)}
+              </div>
+              <p className="font-serif italic text-2xl md:text-4xl leading-[1.25] text-foreground">
+                "{t.quote}"
+              </p>
+              <div className="flex items-center gap-4 mt-8">
+                <span className="w-10 h-px bg-accent" />
                 <div>
-                  <p className="font-semibold text-primary-foreground">{t.name}</p>
-                  <p className="text-primary-foreground/70 text-sm">{t.location} · {t.trip}</p>
-                  {t.pending && (
-                    <p className="text-accent/80 text-xs mt-2 italic">
-                      Placeholder — real customer quotes are being collected.
-                    </p>
-                  )}
+                  <div className="text-xs uppercase tracking-[0.25em] font-semibold text-foreground">{t.name}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{t.location} · {t.trip}</div>
+                  {t.pending && <div className="text-[10px] italic text-accent/70 mt-1">Placeholder — real quotes being collected</div>}
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+              </div>
+            </motion.blockquote>
+          </AnimatePresence>
 
-          <div className="flex items-center justify-center gap-4 mt-10">
-            <button onClick={prev} aria-label="Previous" className="w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors">
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <div className="flex items-center gap-2">
-              {items.map((_, index) => (
-                <button key={index} onClick={() => setCurrent(index)} aria-label={`Go to slide ${index + 1}`} className={`w-2 h-2 rounded-full transition-all ${index === current ? 'bg-accent w-6' : 'bg-primary-foreground/30 hover:bg-primary-foreground/50'}`} />
-              ))}
-            </div>
-            <button onClick={next} aria-label="Next" className="w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors">
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="text-center mt-10">
-            <Button variant="cta" asChild>
-              <Link to="/concierge">Plan your trip with us</Link>
-            </Button>
+          <div className="flex md:flex-col items-center md:items-end gap-3 md:gap-6">
+            <button onClick={() => setI((p) => (p - 1 + testimonials.length) % testimonials.length)} className="w-10 h-10 border border-foreground/20 flex items-center justify-center hover:border-accent hover:text-accent transition-colors" aria-label="Previous"><ChevronLeft className="w-4 h-4" /></button>
+            <div className="text-xs text-muted-foreground font-mono">0{i + 1} / 0{testimonials.length}</div>
+            <button onClick={() => setI((p) => (p + 1) % testimonials.length)} className="w-10 h-10 border border-foreground/20 flex items-center justify-center hover:border-accent hover:text-accent transition-colors" aria-label="Next"><ChevronRight className="w-4 h-4" /></button>
           </div>
         </div>
       </div>

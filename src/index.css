@@ -1,119 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* NumadaTravel Brand Colors */
-    --background: 40 20% 97%;
-    --foreground: 201 78% 20%;
+    /* NumadaTravel — Emerald Prestige palette */
+    /* Cream #f5f0e0, Emerald #064e3b, Emerald-light #0d7a5f, Gold #c9a84c */
+    --background: 46 55% 92%;
+    --foreground: 162 78% 16%;
 
-    --card: 40 33% 98%;
-    --card-foreground: 201 78% 20%;
+    --card: 46 55% 96%;
+    --card-foreground: 162 78% 16%;
 
-    --popover: 40 33% 98%;
-    --popover-foreground: 201 78% 20%;
+    --popover: 46 55% 96%;
+    --popover-foreground: 162 78% 16%;
 
-    /* Navy - Primary */
-    --primary: 201 78% 20%;
-    --primary-foreground: 40 20% 97%;
+    /* Emerald - Primary */
+    --primary: 162 78% 16%;
+    --primary-foreground: 46 55% 92%;
 
-    /* Secondary - Light Navy */
-    --secondary: 201 40% 92%;
-    --secondary-foreground: 201 78% 20%;
+    /* Emerald light - Secondary */
+    --secondary: 158 50% 26%;
+    --secondary-foreground: 46 55% 92%;
 
-    /* Muted - Soft cream */
-    --muted: 40 20% 94%;
-    --muted-foreground: 201 30% 40%;
+    /* Muted cream */
+    --muted: 46 40% 88%;
+    --muted-foreground: 162 30% 32%;
 
-    /* Accent - Orange */
-    --accent: 24 73% 55%;
-    --accent-foreground: 40 20% 97%;
+    /* Gold - Accent */
+    --accent: 43 51% 54%;
+    --accent-foreground: 162 78% 16%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 40 20% 97%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 46 55% 92%;
 
-    --border: 40 20% 88%;
-    --input: 40 20% 88%;
-    --ring: 201 78% 20%;
+    --border: 46 30% 82%;
+    --input: 46 30% 82%;
+    --ring: 43 51% 54%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
-    /* Custom Brand Tokens */
-    --navy: 201 78% 20%;
-    --navy-light: 201 60% 35%;
-    --navy-dark: 201 85% 15%;
-    --orange: 24 73% 55%;
-    --orange-light: 24 80% 65%;
-    --orange-dark: 24 75% 45%;
-    --cream: 40 20% 97%;
-    --cream-dark: 40 25% 92%;
-    --turquoise: 180 70% 45%;
-    --turquoise-light: 180 65% 85%;
+    /* Brand Tokens (aliases used across components) */
+    --navy: 162 78% 16%;
+    --navy-light: 158 50% 26%;
+    --navy-dark: 162 85% 10%;
+    --orange: 43 51% 54%;
+    --orange-light: 43 60% 64%;
+    --orange-dark: 43 55% 44%;
+    --cream: 46 55% 92%;
+    --cream-dark: 46 45% 86%;
+    --turquoise: 165 55% 40%;
+    --turquoise-light: 165 45% 78%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(201 78% 20% / 0.9), hsl(201 60% 35% / 0.7));
-    --gradient-cta: linear-gradient(135deg, hsl(24 73% 55%), hsl(24 80% 60%));
-    --gradient-card: linear-gradient(180deg, hsl(40 33% 98%), hsl(40 25% 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(162 78% 16% / 0.85), hsl(158 50% 26% / 0.55));
+    --gradient-cta: linear-gradient(135deg, hsl(43 51% 54%), hsl(43 60% 62%));
+    --gradient-card: linear-gradient(180deg, hsl(46 55% 96%), hsl(46 45% 88%));
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(201 78% 20% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(201 78% 20% / 0.08), 0 2px 4px -1px hsl(201 78% 20% / 0.04);
-    --shadow-lg: 0 10px 15px -3px hsl(201 78% 20% / 0.1), 0 4px 6px -2px hsl(201 78% 20% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(201 78% 20% / 0.12), 0 10px 10px -5px hsl(201 78% 20% / 0.04);
-    --shadow-card: 0 4px 20px -2px hsl(201 78% 20% / 0.1);
-    --shadow-card-hover: 0 12px 30px -4px hsl(201 78% 20% / 0.18);
+    --shadow-sm: 0 1px 2px 0 hsl(162 78% 16% / 0.06);
+    --shadow-md: 0 4px 6px -1px hsl(162 78% 16% / 0.08), 0 2px 4px -1px hsl(162 78% 16% / 0.04);
+    --shadow-lg: 0 10px 15px -3px hsl(162 78% 16% / 0.1), 0 4px 6px -2px hsl(162 78% 16% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(162 78% 16% / 0.12), 0 10px 10px -5px hsl(162 78% 16% / 0.04);
+    --shadow-card: 0 4px 20px -2px hsl(162 78% 16% / 0.08);
+    --shadow-card-hover: 0 14px 40px -6px hsl(162 78% 16% / 0.18);
 
     /* Sidebar */
-    --sidebar-background: 40 20% 97%;
-    --sidebar-foreground: 201 78% 20%;
-    --sidebar-primary: 201 78% 20%;
-    --sidebar-primary-foreground: 40 20% 97%;
-    --sidebar-accent: 24 73% 55%;
-    --sidebar-accent-foreground: 40 20% 97%;
-    --sidebar-border: 40 20% 88%;
-    --sidebar-ring: 201 78% 20%;
+    --sidebar-background: 46 55% 92%;
+    --sidebar-foreground: 162 78% 16%;
+    --sidebar-primary: 162 78% 16%;
+    --sidebar-primary-foreground: 46 55% 92%;
+    --sidebar-accent: 43 51% 54%;
+    --sidebar-accent-foreground: 162 78% 16%;
+    --sidebar-border: 46 30% 82%;
+    --sidebar-ring: 43 51% 54%;
   }
 
   .dark {
-    --background: 201 85% 8%;
-    --foreground: 40 20% 97%;
-
-    --card: 201 75% 12%;
-    --card-foreground: 40 20% 97%;
-
-    --popover: 201 75% 12%;
-    --popover-foreground: 40 20% 97%;
-
-    --primary: 40 20% 97%;
-    --primary-foreground: 201 78% 20%;
-
-    --secondary: 201 50% 20%;
-    --secondary-foreground: 40 20% 97%;
-
-    --muted: 201 50% 18%;
-    --muted-foreground: 40 15% 70%;
-
-    --accent: 24 73% 55%;
-    --accent-foreground: 40 20% 97%;
-
+    --background: 162 78% 8%;
+    --foreground: 46 55% 92%;
+    --card: 162 60% 12%;
+    --card-foreground: 46 55% 92%;
+    --popover: 162 60% 12%;
+    --popover-foreground: 46 55% 92%;
+    --primary: 46 55% 92%;
+    --primary-foreground: 162 78% 16%;
+    --secondary: 162 40% 20%;
+    --secondary-foreground: 46 55% 92%;
+    --muted: 162 40% 18%;
+    --muted-foreground: 46 15% 70%;
+    --accent: 43 51% 54%;
+    --accent-foreground: 162 78% 16%;
     --destructive: 0 62% 30%;
-    --destructive-foreground: 40 20% 97%;
-
-    --border: 201 50% 20%;
-    --input: 201 50% 20%;
-    --ring: 40 20% 97%;
-
-    --sidebar-background: 201 85% 8%;
-    --sidebar-foreground: 40 20% 97%;
-    --sidebar-primary: 24 73% 55%;
-    --sidebar-primary-foreground: 40 20% 97%;
-    --sidebar-accent: 201 50% 18%;
-    --sidebar-accent-foreground: 40 20% 97%;
-    --sidebar-border: 201 50% 20%;
-    --sidebar-ring: 40 20% 97%;
+    --destructive-foreground: 46 55% 92%;
+    --border: 162 40% 20%;
+    --input: 162 40% 20%;
+    --ring: 43 51% 54%;
+    --sidebar-background: 162 78% 8%;
+    --sidebar-foreground: 46 55% 92%;
+    --sidebar-primary: 43 51% 54%;
+    --sidebar-primary-foreground: 162 78% 16%;
+    --sidebar-accent: 162 40% 18%;
+    --sidebar-accent-foreground: 46 55% 92%;
+    --sidebar-border: 162 40% 20%;
+    --sidebar-ring: 46 55% 92%;
   }
 }
 
