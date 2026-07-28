@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "slug": "yesim-esim-caribbean-review",
+    "title": "Yesim eSIM in the Caribbean: Real-World Coverage Review",
+    "description": "We tested the Yesim regional eSIM across four islands. Here is where it worked, where it crawled, and whether it beats a local SIM.",
+    "status": "published",
+    "date": "2026-07-02",
+    "category": "Gear Review",
+    "rating": 4.0,
+    "author": "Numada Travel"
+  },
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=2000&q=80",
+    "headline": "Yesim eSIM, Tested Across Four Islands",
+    "subheadline": "St. Lucia, Barbados, Grenada and St. Vincent — twelve days, one QR code."
+  },
+  "executive_summary": "Yesim's regional Caribbean plan removed the single most annoying part of island-hopping: standing in a Digicel queue at every arrivals hall. Coverage was strong in St. Lucia and Barbados, adequate in Grenada, and patchy on the Grenadines ferry routes. It is not the cheapest gigabyte you can buy, but it is the cheapest hour you can save, and for trips of a week or less it is the right call.",
+  "technical_table": [
+    { "label": "Plan tested", "value": "Caribbean Regional, 10 GB / 30 days" },
+    { "label": "Price paid", "value": "$34" },
+    { "label": "Activation time", "value": "Under 4 minutes, before departure" },
+    { "label": "Carriers used", "value": "Digicel, Flow (automatic switching)" },
+    { "label": "Median download", "value": "22 Mbps" },
+    { "label": "Hotspot", "value": "Supported" },
+    { "label": "Voice calls", "value": "Data only (WhatsApp / FaceTime)" }
+  ],
+  "deep_dive_markdown": "## Why bother with an eSIM at all\n\nCaribbean roaming on a US or UK plan is the most reliably expensive mistake travellers make. The alternative — buying a local SIM on each island — costs you forty minutes and a passport photocopy per country. On a four-island trip, that is most of an afternoon.\n\nAn eSIM sidesteps both. You install it at home, land, and it attaches.\n\n### Setup\n\nBuy, scan the QR code, label the line, and switch data to it on landing. The one gotcha: **turn off data roaming on your primary line before you take off**, or your home carrier will happily bill you for the twenty seconds before you make the switch.\n\n## Island-by-island results\n\n- **St. Lucia** — Excellent. 30–45 Mbps in Rodney Bay and Soufrière, usable signal on the Tet Paul trail.\n- **Barbados** — Excellent. Full coverage island-wide including the east coast.\n- **Grenada** — Good in St. George's and Grand Anse, thin along the northern coast road.\n- **St. Vincent & the Grenadines** — Reliable on the mainland, dropping to nothing for long stretches of the Bequia and Tobago Cays crossings. Download your charts and playlists first.\n\n### Battery and speed\n\nRunning two lines costs you roughly 8–10% extra battery per day. If you are shooting video and navigating, carry a power bank; that is true regardless of eSIM, but dual-line makes it worse.\n\n## Where it falls short\n\n1. **No local number.** Some island restaurants and boat captains only take WhatsApp — fine — but a handful still call. Keep your home line active for SMS.\n2. **Data-only pricing** is above local prepaid rates. If you are staying three weeks on one island, buy locally.\n3. **Support** is chat-based and responsive but not instant. Do not rely on it at 2am.\n\n## Verdict\n\n**4 / 5.** For any Caribbean trip under two weeks that touches more than one island, Yesim is the correct default. Buy the regional plan, not the single-country one, and top up in-app rather than buying a second plan.",
+  "travelpayouts_deep_link": "https://yesim.tpo.lu/upyXs45K",
+  "cta_label": "Set up your Caribbean eSIM before you fly"
+}
