@@ -16,6 +16,8 @@ import TravelStack from "./pages/TravelStack";
 import Concierge from "./pages/Concierge";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Reviews from "./pages/Reviews";
+import ReviewDetail from "./pages/ReviewDetail";
 import Auth from "./pages/Auth";
 import Insider from "./pages/Insider";
 import Community from "./pages/Community";
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/concierge" element={<Concierge />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/reviews/:slug" element={<ReviewDetail />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/insider" element={<Insider />} />
             <Route path="/community" element={<Community />} />
