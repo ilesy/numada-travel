@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "slug": "example-draft",
+    "title": "Draft Review (Not Public)",
+    "description": "This file demonstrates the draft workflow. Because status is not 'published', it is never rendered or routable.",
+    "status": "draft",
+    "date": "2026-07-20",
+    "category": "Resort Review",
+    "rating": 0,
+    "author": "Numada Travel"
+  },
+  "hero": {
+    "image": "",
+    "headline": "Draft",
+    "subheadline": "Set status to \"published\" to make this live."
+  },
+  "executive_summary": "Placeholder.",
+  "technical_table": [],
+  "deep_dive_markdown": "## Placeholder\n\nWrite the review here.",
+  "travelpayouts_deep_link": "",
+  "cta_label": ""
+}
