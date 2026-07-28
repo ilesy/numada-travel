@@ -8,6 +8,7 @@ import { useFavorites } from '@/contexts/FavoritesContext';
 const navLinks = [
   { name: 'Destinations', href: '/destinations' },
   { name: 'Journal', href: '/blog' },
+  { name: 'Reviews', href: '/reviews' },
   { name: 'Insiders', href: '/insider' },
   { name: 'Travel Stack', href: '/travel-stack' },
   { name: 'Quiz', href: '/quiz' },
