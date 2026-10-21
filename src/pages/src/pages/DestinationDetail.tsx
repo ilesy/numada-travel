@@ -1,4 +1,41 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+export default function DestinationDetail() {
+  const { islandSlug } = useParams<{ islandSlug: string }>();
+
+  // Format the slug nicely (e.g., "st-lucia" -> "St. Lucia")
+  const islandName = islandSlug 
+    ? islandSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    : "Caribbean Island";
+
+  useEffect(() => {
+    // 1. Update browser title for search engines
+    document.title = `${islandName} Private Travel Guide | Numada Travel`;
+    
+    // 2. Dynamically set or update the meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute(
+      'content', 
+      `Explore insider guides, trusted local WhatsApp contacts, and off-menu experiences for ${islandName} with Numada Travel.`
+    );
+  }, [islandName]);
+
+  return (
+    <main className="min-h-screen px-6 py-12 max-w-4xl mx-auto">
+      <h1 className="text-4xl font-serif font-bold mb-4">{islandName} Insider Brief</h1>
+      <p className="text-muted-foreground text-lg mb-8">
+        Vetted local insights, verified guides, and private club notes for {islandName}.
+      </p>
+      {/* Your island content goes here */}
+    </main>
+  );
+}import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Layout } from '@/components/layout/Layout';
