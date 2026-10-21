@@ -1,4 +1,13 @@
-import { useEffect } from "react";
+useEffect(() => {
+  document.title = `${islandName} Private Travel Guide | Numada Travel`;
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if (!metaDesc) {
+    metaDesc = document.createElement('meta');
+    metaDesc.setAttribute('name', 'description');
+    document.head.appendChild(metaDesc);
+  }
+  metaDesc.setAttribute('content', `Explore insider guides, trusted local WhatsApp contacts, and off-menu experiences for ${islandName} with Numada Travel.`);
+}, [islandName]);import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function DestinationDetail() {
