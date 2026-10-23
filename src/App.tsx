@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import Index from "./pages/Index";
 import Destinations from "./pages/Destinations";
-import DestinationDetail from "./pages/DestinationDetail";
+import DestinationDetail from "./pages/destination-detail";)
 import Resources from "./pages/Resources";
 import Quiz from "./pages/Quiz";
 import Favorites from "./pages/Favorites";
