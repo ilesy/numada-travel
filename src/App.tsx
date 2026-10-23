@@ -1,32 +1,30 @@
-<Route path="/destinations/:islandSlug" 
-element={<DestinationDetail />} /> "@/components/ui/toaster";
- "@/components/ui/sonner";
- "@/components/ui/tooltip";
- "@tanstack/react-query";
- "react-router-dom";
- "@/contexts/FavoritesContext";
-"./pages/Index";
- "./pages/Destinations";
-"./pages/DestinationDetail";
- "./pages/Guides";
- "./pages/Resources";
- "./pages/Quiz";
-"./pages/Favorites";
- "./pages/About";
- "./pages/TravelStack";
- "./pages/Concierge";
- "./pages/Blog";
- "./pages/BlogPost";
- "./pages/Reviews";
- "./pages/ReviewDetail";
-"./pages/Auth";
- "./pages/Insider";
- "./pages/Community";
-/pages/NotFound";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { FavoritesProvider } from "@/contexts/FavoritesContext";
+import Index from "./pages/Index";
+import Destinations from "./pages/Destinations";
+import DestinationDetail from "./pages/DestinationDetail";
+import Resources from "./pages/Resources";
+import Quiz from "./pages/Quiz";
+import Favorites from "./pages/Favorites";
+import About from "./pages/About";
+import TravelStack from "./pages/TravelStack";
+import Concierge from "./pages/Concierge";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Reviews from "./pages/Reviews";
+import ReviewDetail from "./pages/ReviewDetail";
+import Auth from "./pages/Auth";
+import Insider from "./pages/Insider";
+import Community from "./pages/Community";
+import NotFound from "./pages/NotFound";
 
- QueryClient();
+const queryClient = new QueryClient();
 
- = () => (
+const App = () => (
   <QueryClientProvider client={queryClient}>
     <FavoritesProvider>
       <TooltipProvider>
