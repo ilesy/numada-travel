@@ -48,7 +48,7 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/insider" element={<Insider />} />
             <Route path="/community" element={<Community />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
