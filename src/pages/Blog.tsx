@@ -78,6 +78,7 @@ const PostCard = ({ post }: { post: Post }) => {
       ) : (
         <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">Notify me when live</span>
       )}
+      </div>
     </div>
   );
 
