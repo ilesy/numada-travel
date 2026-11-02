@@ -12,8 +12,8 @@ import { GuaranteeBadge } from '@/components/GuaranteeBadge';
 // e.g. VITE_FOUNDER_VIDEO_ID=dQw4w9WgXcQ
 const FOUNDER_VIDEO_ID = import.meta.env.VITE_FOUNDER_VIDEO_ID as string | undefined;
 
-// [REPLACE] — placeholder founder copy. Swap with the real founder name and story.
-const FOUNDER_NAME = '[Founder name]';
+
+const FOUNDER_NAME = 'Ilesy Guity';
 const FOUNDER_ROLE = 'Founder, NumadaTravel';
 const ISLANDS_VISITED = 22;
 const YEARS_IN_REGION = 11;
