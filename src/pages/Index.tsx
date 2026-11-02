@@ -8,6 +8,7 @@ import { DestinationsGrid } from '@/components/home/DestinationsGrid';
 import { SampleItineraryCTA } from '@/components/SampleItineraryCTA';
 import { ResourcesSection } from '@/components/home/ResourcesSection';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
+import { FeaturedReviews } from '@/components/home/FeaturedReviews';
 import { NewsletterSection } from '@/components/home/NewsletterSection';
 
 const Index = () => (
@@ -30,6 +31,7 @@ const Index = () => (
         <SampleItineraryCTA source="home-sample" />
       </div>
     </section>
+    <FeaturedReviews />
     <TestimonialsSection />
     <ResourcesSection />
     <NewsletterSection />

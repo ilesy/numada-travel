@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { FooterNewsletter } from './FooterNewsletter';
 
 export const Footer = () => {
   return (
@@ -49,7 +49,6 @@ export const Footer = () => {
                 { name: 'Insider Notes', href: '/insider' },
                 { name: 'Travel Stack', href: '/travel-stack' },
                 { name: 'Island Quiz', href: '/quiz' },
-                { name: 'Concierge', href: '/concierge' },
                 { name: 'Community', href: '/community' },
                 { name: 'About', href: '/about' },
               ].map((i) => (
@@ -61,10 +60,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-[10px] tracking-[0.3em] uppercase text-accent font-semibold mb-6">The Dispatch</h4>
             <p className="text-sm text-primary-foreground/70 mb-4">One hidden gem, one flight hack, every Tuesday.</p>
-            <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-              <Input type="email" placeholder="your@email.com" className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40" />
-              <Button variant="cta" className="w-full">Subscribe</Button>
-            </form>
+            <FooterNewsletter />
           </div>
         </div>
 
