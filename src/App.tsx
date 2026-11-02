@@ -21,6 +21,7 @@ import Auth from "./pages/Auth";
 import Insider from "./pages/Insider";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
+import Legal from "./pages/Legal";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +49,9 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/insider" element={<Insider />} />
             <Route path="/community" element={<Community />} />
+            <Route path="/privacy" element={<Legal doc="privacy" />} />
+            <Route path="/terms" element={<Legal doc="terms" />} />
+            <Route path="/affiliate-disclosure" element={<Legal doc="affiliate" />} />
             {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
