@@ -53,7 +53,7 @@ export interface Destination {
 const AVIASALES_BASE = 'https://aviasales.tpo.lu/ijnjwuHV';
 const EXPEDIA_URL = 'https://expedia.com/affiliates/jbi_enterprises/numadatravel';
 const BOOKING_URL = EXPEDIA_URL;
-const KLOOK_BASE = EXPEDIA_URL;
+const KLOOK_BASE = 'https://klook.tpo.lu/pH5aNy8o';
 
 export const destinations: Destination[] = [
   {
@@ -68,7 +68,7 @@ export const destinations: Destination[] = [
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
     priceFrom: 2900,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -102,7 +102,7 @@ export const destinations: Destination[] = [
     currency: 'Barbadian Dollar',
     language: 'English',
     priceFrom: 2400,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -136,7 +136,7 @@ export const destinations: Destination[] = [
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
     priceFrom: 2200,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -170,7 +170,7 @@ export const destinations: Destination[] = [
     currency: 'Jamaican Dollar',
     language: 'English',
     priceFrom: 1900,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -204,7 +204,7 @@ export const destinations: Destination[] = [
     currency: 'US Dollar',
     language: 'English',
     priceFrom: 3600,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -238,7 +238,7 @@ export const destinations: Destination[] = [
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
     priceFrom: 2800,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -272,7 +272,7 @@ export const destinations: Destination[] = [
     currency: 'Aruban Florin',
     language: 'Dutch, Papiamento, English',
     priceFrom: 2200,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -306,7 +306,7 @@ export const destinations: Destination[] = [
     currency: 'Bahamian Dollar (USD accepted 1:1)',
     language: 'English',
     priceFrom: 2600,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -340,7 +340,7 @@ export const destinations: Destination[] = [
     currency: 'Dominican Peso (USD widely accepted)',
     language: 'Spanish',
     priceFrom: 1500,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -374,7 +374,7 @@ export const destinations: Destination[] = [
     currency: 'Cayman Islands Dollar (USD accepted)',
     language: 'English',
     priceFrom: 3200,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [
@@ -408,7 +408,7 @@ export const destinations: Destination[] = [
     currency: 'Eastern Caribbean Dollar',
     language: 'English',
     priceFrom: 2100,
-    flightsUrl: EXPEDIA_URL,
+    flightsUrl: AVIASALES_BASE,
     hotelsUrl: BOOKING_URL,
     toursUrl: KLOOK_BASE,
     itinerary: [

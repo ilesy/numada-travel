@@ -37,7 +37,6 @@ const posts: Post[] = [
   { id: 3, slug: 'caribbean-on-a-budget', title: 'Caribbean on a Budget: How to Travel Smart Without Sacrificing Style', excerpt: "Insider tips for luxury Caribbean vibes without breaking the bank.", category: 'Budget Travel', readTime: '10 min read', date: 'Mar 28, 2026', image: '💰', status: 'published' },
   { id: 4, slug: 'st-vincent-grenadines-guide', title: 'Ultimate Guide to St. Vincent & The Grenadines', excerpt: "Hidden gems of SVG — from Tobago Cays to volcanic mainland St. Vincent.", category: 'Destination Guide', readTime: '12 min read', date: 'Coming soon', image: '🏝️', status: 'coming-soon' },
   { id: 5, slug: 'caribbean-food-guide', title: 'Caribbean Food Guide: Must-Try Local Dishes on Every Island', excerpt: "Jerk in Jamaica, roti in Trinidad — the dishes worth flying for.", category: 'Food & Culture', readTime: '7 min read', date: 'Coming soon', image: '🍽️', status: 'coming-soon' },
-  { id: 6, slug: 'hidden-caribbean-beaches', title: "10 Hidden Caribbean Beaches You've Never Heard Of", excerpt: "Skip the crowds — pristine shores known mostly to locals, and how to reach them.", category: 'Beaches', readTime: '6 min read', date: 'Coming soon', image: '🏖️', status: 'coming-soon' },
 ];
 
 const container = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.08 } } };
