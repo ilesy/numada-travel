@@ -3,6 +3,14 @@ import { Clock, ArrowRight, Calendar, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
+import stLuciaImg from '@/assets/destinations/st-lucia.jpg';
+import tciImg from '@/assets/destinations/turks-caicos.jpg';
+import antiguaImg from '@/assets/destinations/antigua.jpg';
+import barbadosImg from '@/assets/destinations/barbados.jpg';
+import svgImg from '@/assets/destinations/svg.jpg';
+import grenadaImg from '@/assets/destinations/grenada.jpg';
+import jamaicaImg from '@/assets/destinations/jamaica.jpg';
+import bahamasImg from '@/assets/destinations/bahamas.jpg';
 
 type Post = {
   id: number;
@@ -26,17 +34,17 @@ const posts: Post[] = [
     category: 'Destination Comparison',
     readTime: '12 min read',
     date: 'Jun 18, 2026',
-    image: '🏝️',
+    image: stLuciaImg,
     status: 'published',
     featured: true,
   },
-  { id: 10, slug: 'best-caribbean-island-for-honeymoon', title: 'The Best Caribbean Island for Your Honeymoon (2026 Guide)', excerpt: 'St. Lucia, Turks & Caicos, or the Grenadines? Which one actually fits your honeymoon style.', category: 'Honeymoon', readTime: '10 min read', date: 'Jul 02, 2026', image: '💍', status: 'published' },
-  { id: 11, slug: 'hidden-caribbean-beaches', title: 'Eight Hidden Caribbean Beaches Locals Actually Love', excerpt: "The best Caribbean beaches don't show up on Instagram. Eight locals-only spots.", category: 'Beaches', readTime: '9 min read', date: 'Jun 28, 2026', image: '🏖️', status: 'published' },
-  { id: 1, slug: 'best-time-to-visit-caribbean', title: 'Best Time to Visit the Caribbean: A Month-by-Month Guide', excerpt: "Navigate hurricane season, peak prices, and festivals with our seasonal breakdown.", category: 'Planning', readTime: '8 min read', date: 'Apr 15, 2026', image: '📅', status: 'published' },
-  { id: 2, slug: 'island-hopping-101', title: 'Island Hopping 101: Planning a Multi-Island Caribbean Trip', excerpt: "Combine multiple destinations into one adventure — ferries, regional flights, timing.", category: 'Planning', readTime: '15 min read', date: 'Apr 8, 2026', image: '✈️', status: 'published' },
-  { id: 3, slug: 'caribbean-on-a-budget', title: 'Caribbean on a Budget: How to Travel Smart Without Sacrificing Style', excerpt: "Insider tips for luxury Caribbean vibes without breaking the bank.", category: 'Budget Travel', readTime: '10 min read', date: 'Mar 28, 2026', image: '💰', status: 'published' },
-  { id: 4, slug: 'st-vincent-grenadines-guide', title: 'Ultimate Guide to St. Vincent & The Grenadines', excerpt: "Hidden gems of SVG — from Tobago Cays to volcanic mainland St. Vincent.", category: 'Destination Guide', readTime: '12 min read', date: 'Coming soon', image: '🏝️', status: 'coming-soon' },
-  { id: 5, slug: 'caribbean-food-guide', title: 'Caribbean Food Guide: Must-Try Local Dishes on Every Island', excerpt: "Jerk in Jamaica, roti in Trinidad — the dishes worth flying for.", category: 'Food & Culture', readTime: '7 min read', date: 'Coming soon', image: '🍽️', status: 'coming-soon' },
+  { id: 10, slug: 'best-caribbean-island-for-honeymoon', title: 'The Best Caribbean Island for Your Honeymoon (2026 Guide)', excerpt: 'St. Lucia, Turks & Caicos, or the Grenadines? Which one actually fits your honeymoon style.', category: 'Honeymoon', readTime: '10 min read', date: 'Jul 02, 2026', image: tciImg, status: 'published' },
+  { id: 11, slug: 'hidden-caribbean-beaches', title: 'Eight Hidden Caribbean Beaches Locals Actually Love', excerpt: "The best Caribbean beaches don't show up on Instagram. Eight locals-only spots.", category: 'Beaches', readTime: '9 min read', date: 'Jun 28, 2026', image: antiguaImg, status: 'published' },
+  { id: 1, slug: 'best-time-to-visit-caribbean', title: 'Best Time to Visit the Caribbean: A Month-by-Month Guide', excerpt: "Navigate hurricane season, peak prices, and festivals with our seasonal breakdown.", category: 'Planning', readTime: '8 min read', date: 'Apr 15, 2026', image: barbadosImg, status: 'published' },
+  { id: 2, slug: 'island-hopping-101', title: 'Island Hopping 101: Planning a Multi-Island Caribbean Trip', excerpt: "Combine multiple destinations into one adventure — ferries, regional flights, timing.", category: 'Planning', readTime: '15 min read', date: 'Apr 8, 2026', image: bahamasImg, status: 'published' },
+  { id: 3, slug: 'caribbean-on-a-budget', title: 'Caribbean on a Budget: How to Travel Smart Without Sacrificing Style', excerpt: "Insider tips for luxury Caribbean vibes without breaking the bank.", category: 'Budget Travel', readTime: '10 min read', date: 'Mar 28, 2026', image: jamaicaImg, status: 'published' },
+  { id: 4, slug: 'st-vincent-grenadines-guide', title: 'Ultimate Guide to St. Vincent & The Grenadines', excerpt: "Hidden gems of SVG — from Tobago Cays to volcanic mainland St. Vincent.", category: 'Destination Guide', readTime: '12 min read', date: 'Coming soon', image: svgImg, status: 'coming-soon' },
+  { id: 5, slug: 'caribbean-food-guide', title: 'Caribbean Food Guide: Must-Try Local Dishes on Every Island', excerpt: "Jerk in Jamaica, roti in Trinidad — the dishes worth flying for.", category: 'Food & Culture', readTime: '7 min read', date: 'Coming soon', image: grenadaImg, status: 'coming-soon' },
 ];
 
 const container = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.08 } } };
@@ -44,9 +52,10 @@ const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
 
 const PostCard = ({ post }: { post: Post }) => {
   const inner = (
-    <div className="block p-6 h-full">
+    <div className="block h-full">
+      <img src={post.image} alt={post.title} loading="lazy" className="w-full aspect-[3/2] object-cover" />
+      <div className="p-6">
       <div className="flex items-start justify-between mb-3">
-        <div className="text-5xl">{post.image}</div>
         {post.status === 'coming-soon' && (
           <span className="text-[10px] font-semibold uppercase tracking-wider bg-muted text-muted-foreground px-2 py-1 rounded">
             Coming soon
@@ -126,9 +135,7 @@ const Blog = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="bg-accent/10 flex items-center justify-center text-[10rem] min-h-[260px]">
-                    {featured.image}
-                  </div>
+                  <img src={featured.image} alt={featured.title} className="w-full h-full min-h-[260px] object-cover" />
                 </div>
               </div>
             </Link>
