@@ -47,7 +47,7 @@ const config: Record<AffiliateCategory, { icon: typeof Hotel; label: string; par
     icon: Shield,
     label: 'Travel insurance',
     partners: () => [
-      { name: 'SafetyWing',   tagline: 'Nomad-friendly monthly cover',           href: 'https://safetywing.com/nomad-insurance?referenceID=numadatravel' },
+      { name: 'Travel insurance', tagline: 'Cover for medical, delays and adventure activities', href: 'https://klook.tpo.lu/pH5aNy8o' },
       { name: 'World Nomads', tagline: 'Adventure activities included',           href: 'https://www.worldnomads.com/' },
     ],
   },

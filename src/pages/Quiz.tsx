@@ -240,36 +240,6 @@ const Quiz = () => {
                       </p>
                     </div>
 
-                    {/* Concierge Upsell */}
-                    <div className="max-w-lg mx-auto bg-primary text-primary-foreground rounded-2xl p-6 md:p-8 mb-8 text-left">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
-                          <MessageCircle className="w-6 h-6 text-accent" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-serif text-xl font-bold mb-2">
-                            Want us to plan the whole trip?
-                          </h3>
-                          <p className="text-primary-foreground/80 text-sm mb-4">
-                            Skip the research spiral. For $99, we'll build you a custom day-by-day {recommendation.name} itinerary delivered in 48 hours.
-                          </p>
-                          <Button variant="cta" size="sm" asChild>
-                            <Link to="/concierge">Get My Custom Itinerary →</Link>
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <Button variant="ghost" onClick={restart}>
-                      Retake Quiz
-                    </Button>
-                  </>
-                )}
-
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
       </section>
     </Layout>
   );

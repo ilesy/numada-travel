@@ -85,9 +85,6 @@ const Insider = () => {
               <Button variant="hero" size="lg" onClick={() => navigate('/auth')}>
                 Become a member (free)
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link to="/concierge">Get the full $99 brief</Link>
-              </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-6">
               Membership is free for now while we build the community.
