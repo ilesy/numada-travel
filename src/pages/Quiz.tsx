@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, Sparkles, Plane, Hotel, Compass, MessageCircle } from 'lucide-react';
+import { ChevronLeft, Sparkles, Plane, Hotel, Compass } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -240,6 +240,16 @@ const Quiz = () => {
                       </p>
                     </div>
 
+                    <Button variant="ghost" onClick={restart}>
+                      Retake Quiz
+                    </Button>
+                  </>
+                )}
+
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </section>
     </Layout>
   );
