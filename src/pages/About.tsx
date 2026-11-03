@@ -3,14 +3,11 @@ import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, MapPin, PlayCircle, Heart, Globe, Users, Award } from 'lucide-react';
+import { ArrowRight, Mail, MapPin, Heart, Globe, Users, Award } from 'lucide-react';
 import founderImg from '@/assets/founder.jpg';
-import videoPoster from '@/assets/founder-video-poster.jpg';
+import { CaribbeanReel } from '@/components/CaribbeanReel';
 import { GuaranteeBadge } from '@/components/GuaranteeBadge';
 
-// Optional — set in env when the founder records the intro video.
-// e.g. VITE_FOUNDER_VIDEO_ID=dQw4w9WgXcQ
-const FOUNDER_VIDEO_ID = import.meta.env.VITE_FOUNDER_VIDEO_ID as string | undefined;
 
 
 const FOUNDER_NAME = 'Ilesy Guity';
@@ -44,16 +41,16 @@ const About = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button variant="cta" size="lg" asChild>
-                  <a href="mailto:hi@numadatravel.com?subject=Free%2015-min%20call">
-                    <Calendar className="w-5 h-5 mr-2" /> Book a free 15-min call
+                  <a href="mailto:hello@numadatravel.com">
+                    <Mail className="w-5 h-5 mr-2" /> Contact us: hello@numadatravel.com
                   </a>
                 </Button>
                 <Button variant="outline-light" size="lg" asChild>
-                  <Link to="/concierge">See the Concierge service</Link>
+                  <Link to="/destinations">Explore the islands</Link>
                 </Button>
               </div>
               <p className="text-primary-foreground/60 text-xs mt-4">
-                Replies within one business day, usually faster.
+                We reply within one business day, usually faster.
               </p>
             </div>
             <motion.div
@@ -95,32 +92,7 @@ const About = () => {
               Why we started Numada
             </h2>
           </div>
-          <div className="relative aspect-video rounded-2xl overflow-hidden bg-primary shadow-elevated">
-            {FOUNDER_VIDEO_ID ? (
-              <iframe
-                src={`https://www.youtube.com/embed/${FOUNDER_VIDEO_ID}`}
-                title="Why we started Numada"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            ) : (
-              <>
-                <img
-                  src={videoPoster}
-                  alt="Caribbean coastline at golden hour"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  width={1280}
-                  height={720}
-                />
-                <div className="absolute inset-0 bg-primary/40 flex flex-col items-center justify-center text-primary-foreground">
-                  <PlayCircle className="w-20 h-20 text-accent mb-3" />
-                  <p className="font-serif text-lg italic">Intro video coming soon</p>
-                </div>
-              </>
-            )}
-          </div>
+          <CaribbeanReel />
         </div>
       </section>
 
@@ -134,8 +106,8 @@ const About = () => {
             {[
               { Icon: Heart, title: 'Honest first', text: 'We say "skip this" as often as "book this." No paid placement masquerading as a review.' },
               { Icon: Globe, title: 'Local-rooted', text: 'Every recommendation is sourced from someone who actually lives or works on the island.' },
-              { Icon: Users, title: 'Small by design', text: 'We cap Concierge briefs so every one gets real attention. Quality over volume.' },
-              { Icon: Award, title: 'Stand-behind', text: 'A 7-day money-back guarantee on every paid service. Try it — see for yourself.' },
+              { Icon: Users, title: 'Small by design', text: 'We keep our community small so every member gets real answers. Quality over volume.' },
+              { Icon: Award, title: 'Stand-behind', text: 'We only recommend places we would send our own family.' },
             ].map(({ Icon, title, text }) => (
               <div key={title} className="bg-card border border-border rounded-xl p-6 shadow-card">
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
@@ -157,7 +129,7 @@ const About = () => {
           </h2>
           <div className="bg-muted/30 rounded-xl p-6 md:p-8 space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Numada makes money two ways: a small commission when you book through some of our partner links (at no extra cost to you), and the $99 Concierge service.
+              Numada makes money two ways: a small commission when you book through some of our partner links (at no extra cost to you). That's it — no paid placements.
             </p>
             <p>
               <strong className="text-foreground">Our promise:</strong> we never let a commission decide what we recommend. If a partner pays more but the experience is worse, we send you to the better one — or to a non-affiliate option.
@@ -178,7 +150,7 @@ const About = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button variant="cta" size="lg" asChild>
-              <Link to="/concierge">Get a custom itinerary <ArrowRight className="w-5 h-5 ml-2" /></Link>
+              <a href="mailto:hello@numadatravel.com">Email us <ArrowRight className="w-5 h-5 ml-2" /></a>
             </Button>
             <Button variant="outline-light" size="lg" asChild>
               <Link to="/community">Join the Insiders</Link>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, Sparkles, Plane, Hotel, Compass, MessageCircle } from 'lucide-react';
+import { ChevronLeft, Sparkles, Plane, Hotel, Compass } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -238,26 +238,6 @@ const Quiz = () => {
                       <p className="text-[10px] text-muted-foreground text-center mt-2">
                         We may earn a small commission, at no extra cost to you.
                       </p>
-                    </div>
-
-                    {/* Concierge Upsell */}
-                    <div className="max-w-lg mx-auto bg-primary text-primary-foreground rounded-2xl p-6 md:p-8 mb-8 text-left">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
-                          <MessageCircle className="w-6 h-6 text-accent" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-serif text-xl font-bold mb-2">
-                            Want us to plan the whole trip?
-                          </h3>
-                          <p className="text-primary-foreground/80 text-sm mb-4">
-                            Skip the research spiral. For $99, we'll build you a custom day-by-day {recommendation.name} itinerary delivered in 48 hours.
-                          </p>
-                          <Button variant="cta" size="sm" asChild>
-                            <Link to="/concierge">Get My Custom Itinerary →</Link>
-                          </Button>
-                        </div>
-                      </div>
                     </div>
 
                     <Button variant="ghost" onClick={restart}>
