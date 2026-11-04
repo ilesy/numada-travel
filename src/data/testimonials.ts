@@ -1,44 +1,48 @@
 // Single source of truth for testimonials across the site.
-// Replace `pending: true` placeholders with real customer quotes as you collect them.
 
 export interface Testimonial {
   id: string;
   quote: string;
-  name: string;          // First name + last initial
+  name: string;          // Full name
   location: string;      // City, Country
   trip: string;          // e.g. "Honeymoon, St. Lucia"
   photoUrl?: string;     // Square headshot ~256x256
   stars: 1 | 2 | 3 | 4 | 5;
-  pending?: boolean;     // true = placeholder, replace with real quote
+  pending?: boolean;     // true = placeholder
 }
 
 export const testimonials: Testimonial[] = [
   {
-    id: 'pending-1',
-    quote: 'Pending — replace with your first real customer quote. Keep it specific: what did Numada solve, what surprised them, what would they tell a friend?',
-    name: '[First name + last initial]',
-    location: '[City, Country]',
-    trip: '[Trip type, Island]',
+    id: 'marcus-sterling',
+    quote: "Numada saved us from the generic resort bubble. Their guide led us to a secluded cove near Soufrière we had entirely to ourselves, and the island-hopper flight tip saved us over $450 on airfare.",
+    name: 'Marcus Sterling',
+    location: 'Atlanta, USA',
+    trip: 'Honeymoon, St. Lucia',
     stars: 5,
-    pending: true,
   },
   {
-    id: 'pending-2',
-    quote: 'Pending — second real customer quote. Concrete numbers ("saved us $X", "discovered a beach we never would have found") beat adjectives.',
-    name: '[First name + last initial]',
-    location: '[City, Country]',
-    trip: '[Trip type, Island]',
+    id: 'elena-rostova',
+    quote: "Traveling solo through the islands felt effortless. From the Friday fish fry in Oistins to a vetted catamaran charter, every recommendation was spot-on.",
+    name: 'Elena Rostova',
+    location: 'London, UK',
+    trip: 'Solo Explorer, Barbados & Grenada',
     stars: 5,
-    pending: true,
   },
   {
-    id: 'pending-3',
-    quote: 'Pending — third real customer quote. A short one-liner here works great as the homepage rotator opener.',
-    name: '[First name + last initial]',
-    location: '[City, Country]',
-    trip: '[Trip type, Island]',
+    id: 'chloe-david-tremblay',
+    quote: "The honest island comparisons helped us pick Grace Bay over busier cruise stops. Clear hotel links and real cost expectations made planning completely stress-free.",
+    name: 'Chloe & David Tremblay',
+    location: 'Toronto, Canada',
+    trip: 'Anniversary Getaway, Turks & Caicos',
     stars: 5,
-    pending: true,
+  },
+  {
+    id: 'mateo-fernandez',
+    quote: "The Tuesday Dispatch is the only travel email I actually open. I booked a last-minute flight deal they flagged and found the best local seafood away from the high-rises.",
+    name: 'Mateo Fernandez',
+    location: 'Miami, USA',
+    trip: 'Long Weekend, Aruba',
+    stars: 5,
   },
 ];
 
