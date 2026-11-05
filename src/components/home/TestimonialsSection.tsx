@@ -2,14 +2,35 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { testimonials } from '@/data/testimonials';
+import { Button } from '@/components/ui/button';
+import { Mail } from 'lucide-react';
 
 export const TestimonialsSection = () => {
   const [i, setI] = useState(0);
   useEffect(() => {
+    if (testimonials.length < 2) return;
     const t = setInterval(() => setI((p) => (p + 1) % testimonials.length), 7000);
     return () => clearInterval(t);
   }, []);
   const t = testimonials[i];
+
+  if (!t) {
+    const subject = encodeURIComponent('Our Caribbean travel story');
+    const body = encodeURIComponent('First and last name:\nLocation (optional):\nIsland and trip dates:\nOur experience with NumadaTravel:\n\nPermission to publish our quote and name on NumadaTravel: Yes / No');
+    return (
+      <section className="section-padding bg-cream-dark">
+        <div className="container-narrow">
+          <div className="text-xs uppercase text-accent font-semibold mb-3">Our travel community</div>
+          <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">Every island has a story. <span className="italic text-secondary">What’s yours?</span></h2>
+          <p className="text-muted-foreground mt-6 max-w-2xl">We’re collecting genuine stories from travelers who have explored with our guides. We’d love to hear where you went and what made your trip memorable.</p>
+          <Button asChild className="mt-8">
+            <a href={`mailto:hello@numadatravel.com?subject=${subject}&body=${body}`}><Mail className="w-4 h-4 mr-2" />Share your travel story</a>
+          </Button>
+          <p className="text-sm text-muted-foreground mt-4">We only publish your story and name with your permission.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="section-padding bg-cream-dark">
