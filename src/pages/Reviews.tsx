@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, ArrowRight, Shield } from 'lucide-react';
@@ -7,16 +6,6 @@ import { publishedReviews } from '@/lib/content';
 
 const Reviews = () => (
   <Layout>
-    <Helmet>
-      <title>Caribbean Resort & Gear Reviews | NumadaTravel</title>
-      <meta
-        name="description"
-        content="Independent, tested reviews of Caribbean resorts, gear and travel services — written by people who actually went."
-      />
-      <link rel="canonical" href="/reviews" />
-      <meta property="og:title" content="Caribbean Resort & Gear Reviews | NumadaTravel" />
-      <meta property="og:type" content="website" />
-    </Helmet>
 
     <section className="bg-primary py-20 md:py-28">
       <div className="container-wide">

@@ -40,13 +40,6 @@ const ReviewDetail = () => {
   return (
     <Layout>
       <Helmet>
-        <title>{`${review.meta.title} | NumadaTravel`}</title>
-        <meta name="description" content={review.meta.description} />
-        <link rel="canonical" href={`/reviews/${review.meta.slug}`} />
-        <meta property="og:title" content={review.meta.title} />
-        <meta property="og:description" content={review.meta.description} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

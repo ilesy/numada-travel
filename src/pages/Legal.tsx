@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Layout } from '@/components/layout/Layout';
 
 type Section = { h: string; p: string[] };
@@ -42,7 +41,6 @@ const DOCS: Record<'privacy' | 'terms' | 'affiliate', Doc> = {
 
 const Legal = ({ doc }: { doc: keyof typeof DOCS }) => {
   const d = DOCS[doc];
-  useEffect(() => { document.title = `${d.title} — NumadaTravel`; }, [d.title]);
   return (
     <Layout>
       <article className="container mx-auto px-4 py-16 max-w-3xl">
