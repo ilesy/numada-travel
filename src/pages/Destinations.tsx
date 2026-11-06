@@ -85,6 +85,7 @@ const Destinations = () => {
                 {/* Favorite Button - Outside Link */}
                 <button
                   onClick={() => toggleFavorite(destination.id)}
+                  aria-label={`Save ${destination.name} to favorites`}
                   className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all z-10 ${
                     isFavorite(destination.id)
                       ? 'bg-accent text-accent-foreground'

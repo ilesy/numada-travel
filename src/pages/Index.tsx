@@ -14,11 +14,11 @@ import { NewsletterSection } from '@/components/home/NewsletterSection';
 const Index = () => (
   <Layout>
     <Helmet>
-      <title>NumadaTravel | The Caribbean, Done Right</title>
-      <meta name="description" content="A private Caribbean travel club. Eleven vetted islands, honest guides, insider notes from people who live there." />
-      <link rel="canonical" href="/" />
-      <meta property="og:title" content="NumadaTravel | The Caribbean, Done Right" />
-      <meta property="og:url" content="/" />
+      <title>NumadaTravel | Private Caribbean Travel Club & Insider Guides</title>
+      <meta name="description" content="A private Caribbean travel club. Eleven vetted islands, honest guides and insider notes from locals — plus trusted deals on flights, hotels and tours." />
+      <link rel="canonical" href="https://island-odyssey-finder.lovable.app/" />
+      <meta property="og:title" content="NumadaTravel | Private Caribbean Travel Club & Insider Guides" />
+      <meta property="og:url" content="https://island-odyssey-finder.lovable.app/" />
       <meta property="og:type" content="website" />
     </Helmet>
     <HeroSection />

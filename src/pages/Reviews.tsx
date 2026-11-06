@@ -24,7 +24,7 @@ const Reviews = () => (
           Field Notes
         </span>
         <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary-foreground mb-5 max-w-3xl">
-          Reviews
+          Caribbean Resort &amp; Travel Gear Reviews
         </h1>
         <p className="text-primary-foreground/80 text-lg max-w-2xl">
           Resorts, gear and services we tested ourselves. No press trips, no rewritten brochures.
