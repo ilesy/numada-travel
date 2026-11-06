@@ -326,11 +326,11 @@ const BlogPost = () => {
       <Helmet>
         <title>{post.title} — NumadaTravel</title>
         <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={`/blog/${post.slug}`} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`/blog/${post.slug}`} />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
         <script type="application/ld+json">{JSON.stringify(ldArticle)}</script>
       </Helmet>
 
