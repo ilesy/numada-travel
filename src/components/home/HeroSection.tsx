@@ -49,6 +49,7 @@ export const HeroSection = () => {
               Experience the<br />
               <span className="italic text-secondary">Caribbean,</span><br />
               Done Right.
+              <span className="sr-only"> NumadaTravel, a private Caribbean travel club with vetted island guides</span>
             </h1>
             <p className="text-lg text-foreground/75 max-w-lg mb-10 leading-relaxed">
               A private travel club for people who'd rather skip the tourist trail. Eleven vetted islands, insider notes from people who live there, and the honest reviews the resorts won't publish.

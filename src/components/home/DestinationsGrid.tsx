@@ -43,7 +43,7 @@ export const DestinationsGrid = () => {
                 <h3 className="font-serif text-4xl md:text-5xl mb-2">{featured.name}</h3>
                 <p className="text-primary-foreground/85 max-w-md text-sm md:text-base">{featured.shortDescription}</p>
               </div>
-              <button onClick={(e) => { e.preventDefault(); toggleFavorite(featured.id); }} className={`absolute top-6 left-6 w-10 h-10 flex items-center justify-center backdrop-blur ${isFavorite(featured.id) ? 'bg-accent text-accent-foreground' : 'bg-background/80 text-foreground'}`} aria-label="Save">
+              <button onClick={(e) => { e.preventDefault(); toggleFavorite(featured.id); }} className={`absolute top-6 left-6 w-10 h-10 flex items-center justify-center backdrop-blur ${isFavorite(featured.id) ? 'bg-accent text-accent-foreground' : 'bg-background/80 text-foreground'}`} aria-label={`Save ${featured.name} to favorites`}>
                 <Heart className={`w-4 h-4 ${isFavorite(featured.id) ? 'fill-current' : ''}`} />
               </button>
             </Link>
